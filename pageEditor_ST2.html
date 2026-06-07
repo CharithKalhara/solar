@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Editor – Dineth Ediriweera | Dineth Ediriweera</title>
+
+    <link rel="stylesheet" href="css/pageEditor_validator.css"> <!-- External CSS link -->
+
+</head>
+<body>
+
+    <header id="top">
+        <h1>SDG 7: Affordable and Clean Energy header</h1>
+    </header>
+
+    <!-- Student identity banner -->
+    <section class="stud">
+        <h2>Dineth Ediriweera &nbsp;|&nbsp; SOLAR &nbsp;|&nbsp; Student 2 – Splash Screen, AIS, Content Page</h2>
+    </section>
+
+    <div class="container">
+
+        <!-- ============================================================
+             MAIN CONTENT
+        ============================================================ -->
+        <main>
+
+            <!-- ======================================================
+                 1.  SPLASH SCREEN
+            ====================================================== -->
+            <section>
+                <h2 id="splash">Splash Screen</h2>
+
+                <h3>Technical Description</h3>
+
+                <p>
+                    The Splash Screen (<code>splash.html</code>) is the very first page a visitor
+                    sees when they access the website. It does not use the shared HTML template
+                    because it serves a distinct introductory purpose, but it matches the site's
+                    agreed colour palette, fonts, and overall visual feel.
+                </p>
+
+                <p><strong>HTML Structure</strong></p>
+                <p>
+                    The page uses a single <code>&lt;main&gt;</code> element containing a
+                    <code>&lt;section class="splash-box"&gt;</code> for all visible content. Wrapping
+                    the box inside a <code>&lt;main class="overlay"&gt;</code> container that covers
+                    100 vh with a semi-transparent dark background (<code>rgba(0,0,0,0.6)</code>)
+                    ensures the text remains legible over any background image.
+                    An unordered list (<code>&lt;ul class="member-list"&gt;</code>) displays all four
+                    group members' names clearly. The automatic redirect is handled using an HTML
+                    <code>&lt;meta http-equiv="refresh" content="4; url=home.html"&gt;</code> tag
+                    placed in the <code>&lt;head&gt;</code>, exactly as described in the lecture
+                    notes.
+                </p>
+
+                <p><strong>CSS Techniques</strong></p>
+                <p>
+                    All styling for the Splash Screen is written as embedded CSS inside a
+                    <code>&lt;style&gt;</code> block in the <code>&lt;head&gt;</code>, since this
+                    page has a completely different visual layout from the rest of the site and
+                    does not link to the global <code>style.css</code>. Key CSS choices include:
+                </p>
+                <ul>
+                    <li>
+                        <strong>Full-screen background image:</strong>
+                        <code>background-image: url("images/splash-bg.jpg")</code> combined with
+                        <code>background-size: cover</code> and <code>background-position: center</code>
+                        scales the image to fill the whole viewport without distortion.
+                    </li>
+                    <li>
+                        <strong>Centred overlay box:</strong>
+                        The <code>.overlay</code> uses <code>display: flex; justify-content: center;
+                        align-items: center; min-height: 100vh</code> to perfectly centre the content
+                        box both horizontally and vertically on all screen sizes.
+                    </li>
+                    <li>
+                        <strong>Brand colours:</strong>
+                        The <code>.splash-box</code> border is set to <code>#f4c400</code> (the
+                        site's yellow) and the main <code>&lt;h1&gt;</code> also uses this colour,
+                        maintaining visual consistency with the rest of the website.
+                    </li>
+                    <li>
+                        <strong>CSS Loader Animation:</strong>
+                        A spinning loader is created entirely with CSS — no GIF or video is used.
+                        A <code>&lt;div class="loader"&gt;</code> with <code>border-radius: 50%</code>
+                        forms a circle, and <code>border-top: 5px solid #f4c400</code> creates a
+                        highlighted segment. The <code>@keyframes spin</code> rule animates
+                        <code>transform: rotate()</code> from 0° to 360° over one second with
+                        <code>animation: spin 1s linear infinite</code>, producing a continuous
+                        spinning effect.
+                    </li>
+                    <li>
+                        <strong>Skip button:</strong>
+                        The <code>.skip-btn</code> is styled as a prominent yellow button matching
+                        the site's navigation colour, with a hover state that darkens to
+                        <code>#e0b800</code> for clear interactive feedback.
+                    </li>
+                </ul>
+
+                <p><strong>JavaScript – Countdown Timer</strong></p>
+                <p>
+                    A visible countdown updates every second using
+                    <code>setInterval()</code>. The function decrements a <code>timeLeft</code>
+                    variable and updates the text content of
+                    <code>document.getElementById("countdown")</code> to display
+                    "Entering site in 3…", "2…", "1…" in real time. When
+                    <code>timeLeft</code> reaches zero, <code>clearInterval()</code> is called to
+                    stop the loop. The actual redirect is handled by the
+                    <code>&lt;meta&gt;</code> refresh tag so the two mechanisms work independently,
+                    making the page robust even if JavaScript is unavailable.
+                </p>
+
+                <h3>Accessibility</h3>
+                <p>
+                    The background image text contrast issue is addressed by the dark overlay
+                    (<code>rgba(0,0,0,0.6)</code>), which ensures the white and yellow text meets
+                    the WCAG AA contrast ratio requirement. The heading hierarchy is correct: one
+                    <code>&lt;h1&gt;</code> for the site title, one <code>&lt;h2&gt;</code> for
+                    the subtitle. The skip button is a plain <code>&lt;a&gt;</code> element linking
+                    directly to <code>home.html</code>, making it fully keyboard-accessible and
+                    usable without JavaScript. The CSS loader animation is purely decorative, so
+                    no ARIA label is required.
+                </p>
+
+                <h3>Link to the validation page</h3>
+                <p>
+                    <a href="validation_ST2.html#splashVal">View Splash Screen validation evidence</a>
+                    — jumps directly to the Splash Screen validation section on the Validation Page.
+                </p>
+
+                <h3>Link to the page</h3>
+                <p><a href="splash.html" target="_blank">Open Splash Screen ↗</a></p>
+            </section>
+
+            <!-- ======================================================
+                 2.  SDG ACTION IMPACT SIMULATOR (AIS)
+            ====================================================== -->
+            <section>
+                <h2 id="ais">SDG Action Impact Simulator (AIS)</h2>
+
+                <h3>Technical Description</h3>
+
+                <p>
+                    The Action Impact Simulator (<code>ais.html</code>) is an interactive page
+                    that lets users select clean energy actions, calculates a total impact score,
+                    and gives dynamic feedback including a changing background image. It uses the
+                    shared HTML template and links to <code>style.css</code>, with additional
+                    page-specific styles in an embedded <code>&lt;style&gt;</code> block.
+                </p>
+
+                <p><strong>HTML Structure</strong></p>
+                <p>
+                    The page follows the standard template: <code>&lt;header&gt;</code>,
+                    <code>&lt;nav&gt;</code>, <code>&lt;main&gt;</code>, and
+                    <code>&lt;footer&gt;</code>. Inside <code>&lt;main&gt;</code>, a wrapper
+                    <code>&lt;div class="ais-page"&gt;</code> centres the content. Eight action
+                    items are each marked up as <code>&lt;article class="action-card"&gt;</code>
+                    elements. Using <code>&lt;article&gt;</code> is semantically correct because
+                    each card is a self-contained, independently meaningful piece of content.
+                    Each card carries a custom <code>data-points</code> attribute storing its
+                    impact value (e.g. <code>data-points="3"</code>), which the JavaScript reads
+                    at runtime — keeping the data in the HTML and the logic in the script.
+                </p>
+
+                <p><strong>Embedded CSS (5+ rules)</strong></p>
+                <ul>
+                    <li>
+                        <strong><code>.action-grid</code></strong> — uses
+                        <code>display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px</code>
+                        to arrange the eight action cards in a clean two-column layout. A media
+                        query (<code>@media (max-width: 768px)</code>) collapses this to a single
+                        column on smaller screens, making the page responsive without a separate
+                        stylesheet.
+                    </li>
+                    <li>
+                        <strong><code>.action-card.selected</code></strong> — applies
+                        <code>background-color: #eef8e8; border: 2px solid #2e7d32</code> to
+                        give a clear green visual indication when a card is selected, so users
+                        can immediately see which actions they have chosen.
+                    </li>
+                    <li>
+                        <strong><code>.action-card:hover</code></strong> — changes border to
+                        yellow and background to <code>#fffbe6</code>, providing interactive
+                        feedback consistent with the site's colour scheme before a card is
+                        clicked.
+                    </li>
+                    <li>
+                        <strong><code>.impact-badge</code></strong> — a navy blue
+                        (<code>#003b75</code>) inline label on each card displays its point value.
+                        Using <code>display: inline-block</code> with padding and a contrasting
+                        white text colour makes the badge stand out without breaking the card flow.
+                    </li>
+                    <li>
+                        <strong><code>.feedback-box</code></strong> — a bordered container
+                        (<code>border: 2px solid #999</code>) with centred text displays the
+                        dynamic score summary. Its content is entirely controlled by JavaScript,
+                        but its visual appearance is defined here in CSS.
+                    </li>
+                    <li>
+                        <strong>Level colour classes</strong> (<code>.level-low</code>,
+                        <code>.level-medium</code>, <code>.level-high</code>) — colour-code the
+                        impact level text (amber, dark yellow, green) so users can immediately
+                        interpret their result.
+                    </li>
+                </ul>
+
+                <p><strong>JavaScript Interactivity (<code>js/ais.js</code>)</strong></p>
+                <p>
+                    All interactive behaviour is driven by JavaScript:
+                </p>
+                <ul>
+                    <li>
+                        <strong>Card selection:</strong> <code>toggleCard(card)</code> is called
+                        by each card's <code>onclick</code> attribute. It uses
+                        <code>card.classList.toggle("selected")</code> to add or remove the
+                        selected style, then calls <code>updateScore()</code>.
+                    </li>
+                    <li>
+                        <strong>Score calculation:</strong> <code>updateScore()</code> uses
+                        <code>document.querySelectorAll(".action-card.selected")</code> to collect
+                        all selected cards, then loops through them with
+                        <code>forEach()</code>, parsing each card's
+                        <code>dataset.points</code> and accumulating a total. The count display
+                        is updated dynamically using <code>textContent</code>.
+                    </li>
+                    <li>
+                        <strong>Impact levels and feedback:</strong> <code>updateFeedback()</code>
+                        uses conditional logic to assign one of three impact levels — Low
+                        (score &lt; 8), Medium (8–14), or High (≥ 15). The feedback box's
+                        <code>innerHTML</code> is rebuilt with the score, level label, and a
+                        message on every selection change.
+                    </li>
+                    <li>
+                        <strong>Background image changes:</strong> A
+                        <code>backgroundImages</code> object maps each level key to an image
+                        path. <code>document.body.style.backgroundImage</code> is set by
+                        JavaScript based on the current level — this is a genuine DOM
+                        manipulation approach, not a CSS-only technique.
+                        <code>background-size: cover</code> and
+                        <code>background-attachment: fixed</code> are also applied via JavaScript
+                        to ensure the image fills the page correctly behind the semi-transparent
+                        card content.
+                    </li>
+                    <li>
+                        <strong>Reset:</strong> <code>resetAll()</code> loops through all selected
+                        cards, removes the <code>selected</code> class from each, then calls
+                        <code>updateScore()</code> to restore the page to its initial state.
+                    </li>
+                </ul>
+
+                <h3>Accessibility</h3>
+                <p>
+                    All eight action card images include descriptive <code>alt</code> text
+                    (e.g. <code>"Solar panels generating clean electricity"</code>) describing
+                    what the image shows in the context of the page. The
+                    <code>&lt;article&gt;</code> elements are keyboard focusable and clickable.
+                    The feedback area updates dynamically, and because it is always visible in
+                    the DOM (only its content changes), screen readers can read the updated text
+                    without a page reload. The reset button is a standard
+                    <code>&lt;button&gt;</code> element, ensuring keyboard and screen-reader
+                    access. Colour alone is not used to convey information — the selected state
+                    also shows a border change and the level labels include text descriptions.
+                </p>
+
+                <h3>Link to the validation page</h3>
+                <p>
+                    <a href="validation_ST2.html#aisVal">View AIS validation evidence</a>
+                    — jumps directly to the AIS validation section on the Validation Page.
+                </p>
+
+                <h3>Link to the page</h3>
+                <p><a href="ais.html" target="_blank">Open Action Impact Simulator ↗</a></p>
+            </section>
+
+            <!-- ======================================================
+                 3.  CONTENT PAGE (Student 2)
+            ====================================================== -->
+            <section>
+                <h2 id="content">Content Page (Student 2)</h2>
+
+                <h3>Technical Description</h3>
+
+                <p>
+                    The Content Page (<code>content_ST2.html</code>) is titled
+                    <em>"How Students Can Support Affordable and Clean Energy in Everyday Life"</em>
+                    and covers five topic sections relevant to SDG 7. It uses the shared HTML
+                    template and links to <code>style.css</code>, supplemented by page-specific
+                    embedded CSS.
+                </p>
+
+                <p><strong>HTML Structure</strong></p>
+                <p>
+                    The page wraps all content in an <code>&lt;article&gt;</code> element, which
+                    is semantically appropriate because the entire page is one self-contained
+                    piece of authored content. Inside, five distinct topic areas are each marked
+                    as a <code>&lt;section&gt;</code> with a unique <code>id</code> attribute
+                    (e.g. <code>id="meaning"</code>, <code>id="home-energy"</code>) to support
+                    internal anchor links. The page uses a strict heading hierarchy: one
+                    <code>&lt;h1&gt;</code> for the page title in the header, then
+                    <code>&lt;h2&gt;</code> for each content section heading — maintaining
+                    correct document outline structure throughout.
+                </p>
+
+                <p><strong>Internal Navigation</strong></p>
+                <p>
+                    An internal navigation block (<code>&lt;section class="page-links"&gt;</code>)
+                    sits at the top of the content area. It contains an unordered list of five
+                    anchor links using <code>href="#section-id"</code> format, allowing users to
+                    jump directly to any section without scrolling. This is especially useful
+                    given that the page contains multiple long text sections and several images.
+                </p>
+
+                <p><strong>CSS Techniques</strong></p>
+                <ul>
+                    <li>
+                        <strong><code>.content-page</code></strong> — uses
+                        <code>max-width: 1100px; margin: 0 auto</code> to centre the content
+                        and limit line length for readability on wide screens.
+                    </li>
+                    <li>
+                        <strong><code>.page-links</code></strong> — a yellow-tinted box
+                        (<code>background-color: #fff8cc; border: 1px solid #d9c85f</code>)
+                        highlights the internal navigation menu visually, matching the site's
+                        colour palette.
+                    </li>
+                    <li>
+                        <strong><code>.page-section</code></strong> — each content section is
+                        separated by <code>border-bottom: 1px solid #dddddd; margin-bottom: 35px</code>,
+                        creating a clear visual division between topics without heavy UI elements.
+                    </li>
+                    <li>
+                        <strong><code>.page-image</code></strong> — images are styled with
+                        <code>width: 100%; max-width: 700px; display: block; margin: 15px auto</code>
+                        to be responsive and centred on the page. A subtle
+                        <code>border: 1px solid #cccccc</code> frames each image cleanly.
+                    </li>
+                    <li>
+                        <strong><code>.go-top</code></strong> — the "Go to Top" button uses
+                        <code>position: fixed; right: 20px; bottom: 20px</code> so it remains
+                        visible at all times as the user scrolls. It links to <code>#top</code>
+                        and is styled as a yellow button matching the site's hover colours.
+                        No JavaScript is needed — it works entirely with HTML and CSS.
+                    </li>
+                </ul>
+
+                <p><strong>Images</strong></p>
+                <p>
+                    Four images are placed within the content sections, each using the
+                    <code>.page-image</code> class for consistent presentation. Each image is
+                    followed by an <code>&lt;p class="image-note"&gt;</code> caption that explains
+                    the relevance of the image to the section topic.
+                </p>
+
+                <h3>Accessibility</h3>
+                <p>
+                    All images include meaningful <code>alt</code> text that describes the image
+                    content in the context of the section (e.g.
+                    <code>"A student saving electricity at home by switching off lights"</code>).
+                    The internal navigation section is a <code>&lt;section&gt;</code> labelled
+                    "On this page", giving screen-reader users a clear overview of the page
+                    structure before they begin reading. The heading hierarchy
+                    (<code>&lt;h1&gt;</code> → <code>&lt;h2&gt;</code>) is logically correct
+                    and consistent throughout. Text colour and background combinations across
+                    the page meet WCAG AA contrast standards.
+                </p>
+
+                <h3>Link to the validation page</h3>
+                <p>
+                    <a href="validation_ST2.html#contentVal">View Content Page validation evidence</a>
+                    — jumps directly to the Content Page validation section on the Validation Page.
+                </p>
+
+                <h3>Link to the page</h3>
+                <p><a href="content_ST2.html" target="_blank">Open Content Page (Student 2) ↗</a></p>
+            </section>
+
+            <!-- ======================================================
+                 4.  CHALLENGES AND LESSONS LEARNED
+            ====================================================== -->
+            <section>
+                <h2 id="challenge">Challenges and Lessons Learned</h2>
+
+                <p><strong>Challenge 1 – Splash Screen Meta Refresh vs JavaScript Countdown</strong></p>
+                <p>
+                    Initially I assumed the JavaScript countdown would control the redirect, but
+                    the coursework requires the <code>&lt;meta http-equiv="refresh"&gt;</code> tag
+                    for the automatic redirect. Combining both raised the question of what happens
+                    if the countdown finishes but the meta tag has not yet fired. After reviewing
+                    the lecture notes, I understood the two mechanisms are independent: the meta
+                    tag handles the actual redirect reliably (even with JS disabled), while
+                    JavaScript purely updates the visual countdown text. This separation made the
+                    implementation cleaner and more robust.
+                </p>
+
+                <p><strong>Challenge 2 – Background Image Changing via JavaScript</strong></p>
+                <p>
+                    My first attempt used CSS classes to swap the background image, which the
+                    specification explicitly disallows. I refactored the solution to use a
+                    JavaScript object (<code>backgroundImages</code>) that maps each impact level
+                    to a file path, and directly assigns
+                    <code>document.body.style.backgroundImage</code> based on the calculated
+                    score. This approach is fully JavaScript-driven and much clearer to read and
+                    maintain. I also learned to apply additional background CSS properties via
+                    <code>style.*</code> at the same time (cover, fixed attachment) so the image
+                    displays correctly.
+                </p>
+
+                <p><strong>Challenge 3 – Responsive Grid on the AIS Page</strong></p>
+                <p>
+                    The eight action cards initially overflowed on narrow screens because I used
+                    a fixed two-column grid without a media query. Adding
+                    <code>@media (max-width: 768px) { .action-grid { grid-template-columns: 1fr; } }</code>
+                    collapsed the grid to a single column on mobile. This taught me to always
+                    test layouts at different viewport widths during development rather than at
+                    the end.
+                </p>
+
+                <p><strong>Challenge 4 – HTML Validation on the AIS Page</strong></p>
+                <p>
+                    The W3C validator flagged a warning because <code>&lt;h2&gt;</code> headings
+                    were used inside <code>&lt;article&gt;</code> elements that also contained
+                    a page-level <code>&lt;h2&gt;</code> for the section title. I resolved this
+                    by renaming the action card headings to <code>&lt;h3&gt;</code>, which
+                    corrected the heading hierarchy and removed all validation errors.
+                </p>
+            </section>
+
+            <!-- ======================================================
+                 5.  COMPLIANCE
+            ====================================================== -->
+            <section>
+                <h2 id="compliance">Compliance</h2>
+                <p>
+                    All pages I created comply with JANET regulations governing the publication
+                    of web pages on the University network. The following points demonstrate my
+                    understanding and application of these regulations:
+                </p>
+                <ul>
+                    <li>
+                        <strong>Appropriate and ethical content:</strong> All text on the Splash
+                        Screen, AIS, and Content Page is original and focused on the educational
+                        topic of affordable and clean energy (SDG 7). No offensive, discriminatory,
+                        or inappropriate material is present on any page.
+                    </li>
+                    <li>
+                        <strong>Responsible use of external resources:</strong> All images used
+                        (e.g. from iStockPhoto, Unsplash, or similar royalty-free sources) are
+                        properly referenced in the References section below. No copyrighted images
+                        or text were reproduced without permission.
+                    </li>
+                    <li>
+                        <strong>No commercial activity:</strong> None of my pages advertise,
+                        promote, or sell any products or services. The sole purpose is educational.
+                    </li>
+                    <li>
+                        <strong>No data collection:</strong> The AIS page interacts entirely
+                        client-side. No user input is transmitted to a server, stored in a
+                        database, or shared with any third party. The profile built is session-only
+                        and discarded when the page closes.
+                    </li>
+                    <li>
+                        <strong>Academic integrity:</strong> All written content is original and
+                        composed by me. No text was copied directly from the UN SDGs website or
+                        any other source without attribution.
+                    </li>
+                </ul>
+                <p>
+                    <a href="https://intranet.ecs.westminster.ac.uk/modules/4COSC011W/compliance.html"
+                       target="_blank">See the lecture notes for further details on JANET compliance.</a>
+                </p>
+            </section>
+
+            <!-- ======================================================
+                 6.  GROUP MEETINGS AND INDIVIDUAL CONTRIBUTION LOG
+            ====================================================== -->
+            <section>
+                <h2 id="group">Group Meetings and Individual Contribution Log</h2>
+                <p>
+                    The table below documents all group meetings and my individual contribution
+                    to each one.
+                </p>
+                <ul>
+                    <li>A minimum of six (6) group meetings must be recorded.</li>
+                    <li>Each student must provide their own account of the meetings.</li>
+                    <li>The log must focus on individual contribution, not just group activity.</li>
+                </ul>
+
+                <section id="meetings">
+                <h2>Group Meetings and Individual Contribution Log</h2>
+                <table border="1">
+                    <thead>
+                        <tr>
+                            <th>Meeting</th>
+                            <th>Date & Time</th>
+                            <th>Format</th>
+                            <th>Objective</th>
+                            <th>Attended</th>
+                            <th>Your Individual Contribution</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>3 Feb 2026</td>
+                            <td>Face-to-face</td>
+                            <td>Agree SDG and assign roles</td>
+                            <td>Yes</td>
+                            <td>I contributed to choosing SDG 7 and agreed to take responsibility for the Splash Screen, Action Impact Simulator, and Content Page (Student 2).</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>10 Feb 2026</td>
+                            <td>Online (Teams)</td>
+                            <td>Agree visual identity and colour palette</td>
+                            <td>Yes</td>
+                            <td>I confirmed I would apply the agreed navy blue and yellow colour palette to the Splash Screen overlay and shared ideas for the CSS spinner animation design.</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>17 Feb 2026</td>
+                            <td>Online (Teams)</td>
+                            <td>Review shared template from Student 1</td>
+                            <td>Yes</td>
+                            <td>I presented the first draft of the Splash Screen and received feedback from the team. I also reviewed the shared template from Student 1 and confirmed the header and nav structure I would use on the AIS page.</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>03 Mar 2026</td>
+                            <td>Hybrid</td>
+                            <td>Progress review – mid-point check</td>
+                            <td>Yes</td>
+                            <td>I demonstrated the AIS page with working card selection and score calculation. I explained the data-points approach to the team and discussed the background image change feature.</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>17 Mar 2026</td>
+                            <td>Face-to-face</td>
+                            <td>Cross-review pages and fix links</td>
+                            <td>Yes</td>
+                            <td>I ran the W3C validator on my three pages, fixed the heading hierarchy error on the AIS page, and confirmed all navigation links worked correctly from my pages.</td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td>24 Mar 2026</td>
+                            <td>Online (Teams)</td>
+                            <td>Final review and validation checks</td>
+                            <td>Yes</td>
+                            <td>I completed the Page Editor and Validation Page, took validation screenshots for all three of my pages, and helped package the final website ZIP for submission.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+            </section>
+
+            <!-- ======================================================
+                 7.  REFERENCES
+            ====================================================== -->
+            <section>
+                <h2 id="ref">References</h2>
+                <p>
+                    Resources consulted during the implementation of my pages, listed in APA
+                    format:
+                </p>
+                <ul class="ref">
+                    <li>
+                        Duckett, J. (2011). <i>HTML and CSS: Design and Build Websites.</i>
+                        John Wiley &amp; Sons.
+                        Available at: <a href="https://www.htmlandcssbook.com/" target="_blank">https://www.htmlandcssbook.com/</a>
+                        (Accessed: 10 Feb 2026).
+                    </li>
+                    <li>
+                        iStockPhoto (2026). <i>Royalty-free stock images.</i>
+                        Available at: <a href="https://www.istockphoto.com/" target="_blank">https://www.istockphoto.com/</a>
+                        (Accessed: 15 Feb 2026).
+                    </li>
+                    <li>
+                        MDN Web Docs (2026). <i>setInterval() – Web APIs.</i> Mozilla.
+                        Available at: <a href="https://developer.mozilla.org/en-US/docs/Web/API/setInterval" target="_blank">https://developer.mozilla.org/en-US/docs/Web/API/setInterval</a>
+                        (Accessed: 20 Feb 2026).
+                    </li>
+                    <li>
+                        MDN Web Docs (2026). <i>CSS Animations.</i> Mozilla.
+                        Available at: <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_animations" target="_blank">https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_animations</a>
+                        (Accessed: 22 Feb 2026).
+                    </li>
+                    <li>
+                        MDN Web Docs (2026). <i>HTMLElement.dataset.</i> Mozilla.
+                        Available at: <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/dataset" target="_blank">https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/dataset</a>
+                        (Accessed: 5 Mar 2026).
+                    </li>
+                    <li>
+                        United Nations (2026). <i>Sustainable Development Goal 7: Affordable and Clean Energy.</i>
+                        Available at: <a href="https://sdgs.un.org/goals/goal7" target="_blank">https://sdgs.un.org/goals/goal7</a>
+                        (Accessed: 3 Feb 2026).
+                    </li>
+                    <li>
+                        W3C (2026). <i>Markup Validation Service.</i>
+                        Available at: <a href="https://validator.w3.org/" target="_blank">https://validator.w3.org/</a>
+                        (Accessed: 15 Mar 2026).
+                    </li>
+                    <li>
+                        University of Westminster (2026). <i>Lecture notes – 4COSC011W Web Design
+                        and Development, Semester 2.</i> Blackboard, Module materials.
+                    </li>
+                </ul>
+            </section>
+
+            <p class="top"><a href="#top">Go top</a></p>
+        </main>
+
+        <!-- ============================================================
+             SIDEBAR – internal navigation
+        ============================================================ -->
+        <aside>
+            <h3>Core pages developed:</h3>
+            <ul class="top-level-ul">
+                <li>Student 2 – Dineth Ediriweera</li>
+                <ul>
+                    <li><a href="#splash">Splash Screen</a></li>
+                    <li><a href="#ais">Action Impact Simulator</a></li>
+                    <li><a href="#content">Content Page (ST2)</a></li>
+                </ul>
+                <li><a href="#challenge">Challenges and Lessons Learned</a></li>
+                <li><a href="#compliance">Compliance</a></li>
+                <li><a href="#group">Group Meetings Log</a></li>
+                <li><a href="#ref">References</a></li>
+            </ul>
+        </aside>
+
+    </div><!-- end .container -->
+
+  <footer class="site-footer">
+    <p><a href="pageEditor_ST2.html">Page Editor</a></p>
+    <p><a href="validation_ST2.html">Validation</a></p>
+    <p>Dineth Ediriweera | Student 2</p>
+    <p><a href="sitemap.html">Accessibility</a></p>
+  </footer>
+
+</body>
+</html>

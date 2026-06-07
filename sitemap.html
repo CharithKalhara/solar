@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    ============================================================
+    sitemap.html
+    Sitemap Page – Student 4 (Mavinu)
+    SDG 7: Affordable and Clean Energy
+    Module: 4COSC011W Web Design and Development
+    ============================================================
+    This page contains an SVG sitemap that:
+    - Visually represents the website hierarchy
+    - Has clickable nodes linking to each page
+    - Has hover effects (JS + CSS)
+    - Is responsive using viewBox
+    - Is keyboard accessible (tabindex, title elements)
+    ============================================================
+  -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sitemap | Clean Energy SDG 7</title>
+
+  <!-- ── Global CSS ── -->
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- ── Page-specific embedded CSS ── -->
+  <style>
+    /* ── Sitemap page heading area ── */
+    .sitemap-header {
+      text-align: center;
+      padding: 24px 20px 10px;
+    }
+
+    .sitemap-header h1 {
+      font-size: 1.9rem;
+      color: #003b75;
+      margin: 0 0 8px;
+    }
+
+    .sitemap-header p {
+      color: #555;
+      font-size: 0.95rem;
+      margin: 0;
+    }
+
+    /* ── SVG wrapper – responsive ── */
+    .svg-wrapper {
+      width: 100%;
+      max-width: 960px;
+      margin: 24px auto;
+      background: #f7f9fc;
+      border: 1px solid #dde;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 4px 20px rgba(0,59,117,0.10);
+      overflow-x: auto;
+    }
+
+    /* SVG scales to fill its wrapper */
+    .svg-wrapper svg {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* ── SVG node hover (CSS) ── */
+    .site-node {
+      cursor: pointer;
+      outline: none;            /* custom focus handled via JS stroke */
+    }
+
+    .site-node rect,
+    .site-node circle {
+      transition: fill 0.2s, stroke-width 0.2s;
+    }
+
+    /* CSS hover as fallback */
+    .site-node:hover rect,
+    .site-node:focus rect {
+      fill: #f4c400 !important;
+      stroke-width: 3 !important;
+    }
+
+    .site-node text {
+      pointer-events: none;     /* let clicks pass to the <a> element */
+      font-family: Arial, sans-serif;
+      font-size: 12px;
+    }
+
+    /* ── Legend card ── */
+    .legend {
+      max-width: 960px;
+      margin: 0 auto 28px;
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.88rem;
+      color: #333;
+    }
+
+    .legend-swatch {
+      width: 22px;
+      height: 22px;
+      border-radius: 4px;
+      border: 1.5px solid #003b75;
+    }
+    .nav-list a.active {
+            background-color: #0b3a6e;
+            color: white;
+            font-weight: 600;
+            box-shadow: inset 0 -4px 0 #f4c400;
+            }
+
+.nav-list a.active:hover {
+    background-color: #0b3a6e;
+    color: white;
+}
+  </style>
+</head>
+
+<body>
+
+  <!-- ══════════════════════════════════════════════
+       HEADER & NAV (shared template by Charith)
+       ════════════════════════════════════════════ -->
+  <header class="top-header">
+    <div class="header-container">
+      <img
+        src="images/logo.png"
+        alt="Clean Energy SDG 7 website logo"
+        class="logo"
+      />
+      <div class="text-area">
+        <h1>Clean Energy</h1>
+        <h2>SDG 7 – Affordable and Clean Energy</h2>
+        <p>Empowering a sustainable future for everyone</p>
+      </div>
+    </div>
+  </header>
+
+  <nav aria-label="Main navigation">
+    <ul class="nav-list">
+      <li><a href="home.html">Home</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="ais.html">Action Simulator</a></li>
+      <li><a href="feedback.html">Feedback</a></li>
+      <li><a href="team.html">Team</a></li>
+      <li><a href="profile.html">Profile</a></li>
+      <!-- Sitemap is ACTIVE -->
+      <li><a href="sitemap.html" class="active" aria-current="page">Sitemap</a></li>
+    </ul>
+  </nav>
+
+  <!-- ══════════════════════════════════════════════
+       MAIN CONTENT
+       ════════════════════════════════════════════ -->
+  <main id="top">
+
+    <div class="sitemap-header">
+      <h1>&#128506; Website Sitemap</h1>
+      <p>A visual overview of the Clean Energy SDG 7 website structure. Click any node to visit that page.</p>
+    </div>
+
+    <!-- Colour legend -->
+    <div class="legend" aria-label="Colour key for sitemap nodes">
+      <div class="legend-item">
+        <div class="legend-swatch" style="background:#003b75;"></div>
+        <span>Entry / Top-level</span>
+      </div>
+      <div class="legend-item">
+        <div class="legend-swatch" style="background:#0062b1;"></div>
+        <span>Main pages</span>
+      </div>
+      <div class="legend-item">
+        <div class="legend-swatch" style="background:#e8f0fe;"></div>
+        <span>Sub-pages / utilities</span>
+      </div>
+      <div class="legend-item">
+        <div class="legend-swatch" style="background:#f4c400;"></div>
+        <span>Hover highlight</span>
+      </div>
+    </div>
+
+    <!-- ══ SVG Sitemap ══════════════════════════════════════════════════ -->
+    <div class="svg-wrapper">
+      <!--
+        SVG uses viewBox for responsiveness.
+        All nodes have:
+          - <title> for screen-reader accessibility
+          - tabindex="0" for keyboard navigation
+          - class="site-node" for JS/CSS interaction
+          - an <a xlink:href="..."> wrapping the shapes
+      -->
+      <svg
+        viewBox="0 0 900 620"
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+        role="img"
+        aria-label="Website sitemap showing page hierarchy for Clean Energy SDG 7"
+      >
+        <!-- ── DEFS: arrow marker ── -->
+        <defs>
+          <marker id="arrow" markerWidth="10" markerHeight="7"
+                  refX="10" refY="3.5" orient="auto">
+            <polygon points="0 0, 10 3.5, 0 7" fill="#003b75" />
+          </marker>
+        </defs>
+
+        <!-- ══════════════════════════════════════
+             LEVEL 0 – SPLASH SCREEN (entry point)
+             ══════════════════════════════════════ -->
+        <!-- Vertical line: Splash → Home -->
+        <line x1="450" y1="72" x2="450" y2="115"
+              stroke="#003b75" stroke-width="2"
+              marker-end="url(#arrow)" />
+
+        <a xlink:href="splash.html" tabindex="0" class="site-node" role="link">
+          <title>Splash Screen – Entry point of the website</title>
+          <rect x="330" y="18" width="240" height="50"
+                rx="10" fill="#003b75" stroke="#003b75" stroke-width="1.5" />
+          <text x="450" y="39" fill="white" text-anchor="middle"
+                font-weight="bold" font-size="13">Splash Screen</text>
+          <text x="450" y="57" fill="#f4c400" text-anchor="middle"
+                font-size="11">Entry Point</text>
+        </a>
+
+        <!-- ══════════════════════════════════════
+             LEVEL 1 – HOME PAGE
+             ══════════════════════════════════════ -->
+        <a xlink:href="home.html" tabindex="0" class="site-node" role="link">
+          <title>Home Page – Main landing page</title>
+          <rect x="330" y="118" width="240" height="50"
+                rx="10" fill="#0062b1" stroke="#003b75" stroke-width="1.5" />
+          <text x="450" y="139" fill="white" text-anchor="middle"
+                font-weight="bold" font-size="13">Home Page</text>
+          <text x="450" y="157" fill="#f4c400" text-anchor="middle"
+                font-size="11">home.html</text>
+        </a>
+
+        <!-- ══════════════════════════════════════
+             LEVEL 2 – BRANCH LINES FROM HOME
+             Fan out to 8 main pages
+             ══════════════════════════════════════ -->
+        <!-- Horizontal baseline at y=220 -->
+        <line x1="450" y1="168" x2="450" y2="210"
+              stroke="#003b75" stroke-width="1.5" />
+        <!-- Horizontal bar across all 8 nodes -->
+        <line x1="60" y1="210" x2="840" y2="210"
+              stroke="#003b75" stroke-width="1.5" />
+
+        <!-- Drop lines to each L2 node -->
+        <line x1="60"  y1="210" x2="60"  y2="238" stroke="#003b75" stroke-width="1.5" marker-end="url(#arrow)" />
+        <line x1="165" y1="210" x2="165" y2="238" stroke="#003b75" stroke-width="1.5" marker-end="url(#arrow)" />
+        <line x1="270" y1="210" x2="270" y2="238" stroke="#003b75" stroke-width="1.5" marker-end="url(#arrow)" />
+        <line x1="375" y1="210" x2="375" y2="238" stroke="#003b75" stroke-width="1.5" marker-end="url(#arrow)" />
+        <line x1="480" y1="210" x2="480" y2="238" stroke="#003b75" stroke-width="1.5" marker-end="url(#arrow)" />
+        <line x1="585" y1="210" x2="585" y2="238" stroke="#003b75" stroke-width="1.5" marker-end="url(#arrow)" />
+        <line x1="690" y1="210" x2="690" y2="238" stroke="#003b75" stroke-width="1.5" marker-end="url(#arrow)" />
+        <line x1="840" y1="210" x2="840" y2="238" stroke="#003b75" stroke-width="1.5" marker-end="url(#arrow)" />
+
+        <!-- ══ Gallery ══ -->
+        <a xlink:href="gallery.html" tabindex="0" class="site-node" role="link">
+          <title>Gallery Page – SDG 7 image gallery</title>
+          <rect x="10" y="240" width="100" height="48"
+                rx="8" fill="#0062b1" stroke="#003b75" stroke-width="1.5" />
+          <text x="60" y="260" fill="white" text-anchor="middle" font-size="11" font-weight="bold">Gallery</text>
+          <text x="60" y="278" fill="#f4c400" text-anchor="middle" font-size="9">gallery.html</text>
+        </a>
+
+        <!-- ══ Action Simulator ══ -->
+        <a xlink:href="ais.html" tabindex="0" class="site-node" role="link">
+          <title>Action Impact Simulator – Interactive SDG actions</title>
+          <rect x="115" y="240" width="100" height="48"
+                rx="8" fill="#0062b1" stroke="#003b75" stroke-width="1.5" />
+          <text x="165" y="258" fill="white" text-anchor="middle" font-size="10" font-weight="bold">Action</text>
+          <text x="165" y="272" fill="white" text-anchor="middle" font-size="10" font-weight="bold">Simulator</text>
+          <text x="165" y="284" fill="#f4c400" text-anchor="middle" font-size="9">ais.html</text>
+        </a>
+
+        <!-- ══ Feedback ══ -->
+        <a xlink:href="feedback.html" tabindex="0" class="site-node" role="link">
+          <title>Feedback and Programme Directory</title>
+          <rect x="220" y="240" width="100" height="48"
+                rx="8" fill="#0062b1" stroke="#003b75" stroke-width="1.5" />
+          <text x="270" y="260" fill="white" text-anchor="middle" font-size="11" font-weight="bold">Feedback</text>
+          <text x="270" y="278" fill="#f4c400" text-anchor="middle" font-size="9">feedback.html</text>
+        </a>
+
+        <!-- ══ Team ══ -->
+        <a xlink:href="team.html" tabindex="0" class="site-node" role="link">
+          <title>Team Page – Meet the group members</title>
+          <rect x="325" y="240" width="100" height="48"
+                rx="8" fill="#0062b1" stroke="#003b75" stroke-width="1.5" />
+          <text x="375" y="260" fill="white" text-anchor="middle" font-size="11" font-weight="bold">Team</text>
+          <text x="375" y="278" fill="#f4c400" text-anchor="middle" font-size="9">team.html</text>
+        </a>
+
+        <!-- ══ User Profile ══ -->
+        <a xlink:href="profile.html" tabindex="0" class="site-node" role="link">
+          <title>User Profile – Progressive profile builder</title>
+          <rect x="430" y="240" width="100" height="48"
+                rx="8" fill="#0062b1" stroke="#003b75" stroke-width="1.5" />
+          <text x="480" y="258" fill="white" text-anchor="middle" font-size="10" font-weight="bold">User</text>
+          <text x="480" y="272" fill="white" text-anchor="middle" font-size="10" font-weight="bold">Profile</text>
+          <text x="480" y="284" fill="#f4c400" text-anchor="middle" font-size="9">profile.html</text>
+        </a>
+
+        <!-- ══ Sitemap ══ -->
+        <a xlink:href="sitemap.html" tabindex="0" class="site-node" role="link">
+          <title>Sitemap – Website structure overview (current page)</title>
+          <rect x="535" y="240" width="100" height="48"
+                rx="8" fill="#003b75" stroke="#f4c400" stroke-width="2.5" />
+          <text x="585" y="260" fill="white" text-anchor="middle" font-size="11" font-weight="bold">Sitemap</text>
+          <text x="585" y="276" fill="#f4c400" text-anchor="middle" font-size="9">★ Current Page</text>
+        </a>
+
+        <!-- ══ Content Pages (branch) ══ -->
+        <a xlink:href="content_ST4.html" tabindex="0" class="site-node" role="link">
+          <title>Content Pages – Individual student content</title>
+          <rect x="640" y="240" width="100" height="48"
+                rx="8" fill="#0062b1" stroke="#003b75" stroke-width="1.5" />
+          <text x="690" y="258" fill="white" text-anchor="middle" font-size="10" font-weight="bold">Content</text>
+          <text x="690" y="272" fill="white" text-anchor="middle" font-size="10" font-weight="bold">Pages</text>
+          <text x="690" y="284" fill="#f4c400" text-anchor="middle" font-size="9">content_STx.html</text>
+        </a>
+
+        <!-- ══ Page Editors (branch) ══ -->
+        <a xlink:href="pageEditor_ST4.html" tabindex="0" class="site-node" role="link">
+          <title>Page Editor – Individual student technical reports</title>
+          <rect x="790" y="240" width="100" height="48"
+                rx="8" fill="#0062b1" stroke="#003b75" stroke-width="1.5" />
+          <text x="840" y="258" fill="white" text-anchor="middle" font-size="10" font-weight="bold">Page</text>
+          <text x="840" y="272" fill="white" text-anchor="middle" font-size="10" font-weight="bold">Editors</text>
+          <text x="840" y="284" fill="#f4c400" text-anchor="middle" font-size="9">pageEditor_STx.html</text>
+        </a>
+
+        <!-- ══════════════════════════════════════
+             LEVEL 3 – Content sub-nodes
+             ══════════════════════════════════════ -->
+        <line x1="690" y1="288" x2="690" y2="340"
+              stroke="#003b75" stroke-width="1.5" />
+        <line x1="560" y1="340" x2="820" y2="340"
+              stroke="#003b75" stroke-width="1.5" />
+
+        <!-- Drop to each content page -->
+        <line x1="580" y1="340" x2="580" y2="368" stroke="#003b75" stroke-width="1.2" marker-end="url(#arrow)" />
+        <line x1="650" y1="340" x2="650" y2="368" stroke="#003b75" stroke-width="1.2" marker-end="url(#arrow)" />
+        <line x1="730" y1="340" x2="730" y2="368" stroke="#003b75" stroke-width="1.2" marker-end="url(#arrow)" />
+        <line x1="800" y1="340" x2="800" y2="368" stroke="#003b75" stroke-width="1.2" marker-end="url(#arrow)" />
+
+        <a xlink:href="content_ST1.html" tabindex="0" class="site-node" role="link">
+          <title>Content Page – Student 1 Charith</title>
+          <rect x="548" y="370" width="64" height="40" rx="6" fill="#e8f0fe" stroke="#003b75" stroke-width="1.5" />
+          <text x="580" y="386" fill="#003b75" text-anchor="middle" font-size="10" font-weight="bold">ST1</text>
+          <text x="580" y="400" fill="#003b75" text-anchor="middle" font-size="9">Charith</text>
+        </a>
+
+        <a xlink:href="content_ST2.html" tabindex="0" class="site-node" role="link">
+          <title>Content Page – Student 2 Dineth</title>
+          <rect x="618" y="370" width="64" height="40" rx="6" fill="#e8f0fe" stroke="#003b75" stroke-width="1.5" />
+          <text x="650" y="386" fill="#003b75" text-anchor="middle" font-size="10" font-weight="bold">ST2</text>
+          <text x="650" y="400" fill="#003b75" text-anchor="middle" font-size="9">Dineth</text>
+        </a>
+
+        <a xlink:href="content_ST3.html" tabindex="0" class="site-node" role="link">
+          <title>Content Page – Student 3 Chamindu</title>
+          <rect x="698" y="370" width="64" height="40" rx="6" fill="#e8f0fe" stroke="#003b75" stroke-width="1.5" />
+          <text x="730" y="386" fill="#003b75" text-anchor="middle" font-size="10" font-weight="bold">ST3</text>
+          <text x="730" y="400" fill="#003b75" text-anchor="middle" font-size="9">Chamindu</text>
+        </a>
+
+        <a xlink:href="content_ST4.html" tabindex="0" class="site-node" role="link">
+          <title>Content Page – Student 4 Mavinu (Solar Energy)</title>
+          <rect x="768" y="370" width="64" height="40" rx="6" fill="#f4c400" stroke="#003b75" stroke-width="1.5" />
+          <text x="800" y="386" fill="#003b75" text-anchor="middle" font-size="10" font-weight="bold">ST4</text>
+          <text x="800" y="400" fill="#003b75" text-anchor="middle" font-size="9">Mavinu</text>
+        </a>
+
+        <!-- ══════════════════════════════════════
+             LEVEL 3 – Page Editor sub-nodes
+             ══════════════════════════════════════ -->
+        <line x1="840" y1="288" x2="840" y2="460"
+              stroke="#003b75" stroke-width="1.5" stroke-dasharray="5,4" />
+        <text x="855" y="380" fill="#666" font-size="10" font-style="italic">Validation pages</text>
+        <text x="855" y="395" fill="#666" font-size="10" font-style="italic">also linked from</text>
+        <text x="855" y="410" fill="#666" font-size="10" font-style="italic">each footer</text>
+
+        <!-- ══════════════════════════════════════
+             FOOTER NOTE
+             ══════════════════════════════════════ -->
+        <text x="450" y="590" fill="#888" text-anchor="middle" font-size="11">
+          Hover over any node to highlight it · Click to navigate · Tab key for keyboard access
+        </text>
+
+      </svg>
+    </div>
+    <!-- end svg-wrapper -->
+
+  </main>
+
+  <!-- ══════════════════════════════════════════════
+       FOOTER (Student 4 – Mavinu)
+       ════════════════════════════════════════════ -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-left">
+        <h3>Clean Energy – SDG 7</h3>
+        <p>Student 4: Mavinu</p>
+        <p>Role: User Profile &amp; Sitemap</p>
+      </div>
+      <div class="footer-links">
+        <a href="pageEditor_ST4.html" target="_blank">Page Editor – Mavinu</a>
+        <a href="validation_ST4.html" target="_blank">Validation – Mavinu</a>
+        <a href="https://www.un.org/sustainabledevelopment/energy/" target="_blank" rel="noopener">
+          Accessibility &amp; Compliance
+        </a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2026 SOLAR
+    </div>
+  </footer>
+
+  <!-- ── Page-specific JS ── -->
+  <script src="sitemap.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    ============================================================
+    content_ST4.html
+    Content Page – Student 4 (Mavinu)
+    Topic: Solar Energy
+    SDG 7: Affordable and Clean Energy
+    Module: 4COSC011W Web Design and Development
+    ============================================================
+    This page covers Solar Energy in depth with:
+    - Multiple structured sections with h1–h3 headings
+    - Internal anchor navigation menu at the top
+    - "Go to Top" button (CSS fixed, no JS)
+    - 4+ relevant images with alt text
+    - CSS image styling
+    ============================================================
+  -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Solar Energy | Clean Energy SDG 7</title>
+
+  <!-- ── Global CSS ── -->
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- ── Page-specific embedded CSS ── -->
+  <style>
+    /* ── Page hero ── */
+    .content-hero {
+      background: linear-gradient(135deg, #f4c400 0%, #ffdd57 50%, #003b75 100%);
+      padding: 40px 28px 30px;
+      border-radius: 10px;
+      margin-bottom: 30px;
+      text-align: center;
+      color: #003b75;
+    }
+
+    .content-hero h1 {
+      font-size: 2.2rem;
+      margin: 0 0 10px;
+      text-shadow: 0 1px 2px rgba(255,255,255,0.4);
+    }
+
+    .content-hero p {
+      font-size: 1.05rem;
+      margin: 0;
+      color: #003b75;
+    }
+
+    /* ── Internal navigation menu ── */
+    .internal-nav {
+      background: #fff;
+      border: 2px solid #f4c400;
+      border-radius: 8px;
+      padding: 16px 20px;
+      margin-bottom: 32px;
+    }
+
+    .internal-nav h2 {
+      font-size: 1rem;
+      margin: 0 0 10px;
+      color: #003b75;
+    }
+
+    .internal-nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .internal-nav a {
+      display: inline-block;
+      padding: 6px 14px;
+      background: #003b75;
+      color: white;
+      border-radius: 20px;
+      text-decoration: none;
+      font-size: 0.88rem;
+      transition: background 0.2s;
+    }
+
+    .internal-nav a:hover {
+      background: #0062b1;
+    }
+
+    /* ── Section headings ── */
+    .content-section {
+      margin-bottom: 42px;
+      scroll-margin-top: 70px; /* offset for fixed nav if any */
+    }
+
+    .content-section h2 {
+      font-size: 1.5rem;
+      color: #003b75;
+      border-left: 5px solid #f4c400;
+      padding-left: 14px;
+      margin-bottom: 14px;
+    }
+
+    .content-section h3 {
+      font-size: 1.15rem;
+      color: #0062b1;
+      margin: 20px 0 8px;
+    }
+
+    .content-section p {
+      line-height: 1.75;
+      color: #333;
+      margin-bottom: 12px;
+    }
+
+    /* ── Content images ── */
+    .content-img {
+      width: 100%;
+      max-width: 640px;
+      display: block;
+      margin: 18px auto;
+      border-radius: 10px;
+      border: 3px solid #f4c400;
+      box-shadow: 0 6px 20px rgba(0,59,117,0.15);
+    }
+
+    /* Image caption */
+    .img-caption {
+      text-align: center;
+      font-size: 0.85rem;
+      color: #666;
+      margin-top: -10px;
+      margin-bottom: 18px;
+      font-style: italic;
+    }
+
+    /* ── Fact highlight boxes ── */
+    .fact-box {
+      background: #fffbea;
+      border-left: 4px solid #f4c400;
+      padding: 14px 18px;
+      border-radius: 0 8px 8px 0;
+      margin: 16px 0;
+      font-size: 0.95rem;
+      color: #333;
+    }
+
+    .fact-box strong {
+      color: #003b75;
+    }
+
+    /* ── Action list ── */
+    .action-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 16px;
+    }
+
+    .action-list li {
+      padding: 10px 14px;
+      margin-bottom: 8px;
+      background: #f0f7ff;
+      border-left: 4px solid #003b75;
+      border-radius: 0 6px 6px 0;
+      font-size: 0.95rem;
+      color: #222;
+    }
+
+    .action-list li::before {
+      content: "☀ ";
+      color: #f4c400;
+    }
+
+    /* ── Two-column info grid ── */
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+      margin: 18px 0;
+    }
+
+    .info-tile {
+      background: #003b75;
+      color: white;
+      padding: 18px;
+      border-radius: 8px;
+      text-align: center;
+    }
+
+    .info-tile .tile-num {
+      font-size: 2rem;
+      font-weight: bold;
+      color: #f4c400;
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    .info-tile p {
+      color: white;
+      margin: 0;
+      font-size: 0.9rem;
+    }
+
+    /* ── "Go to Top" fixed button (CSS only, no JS) ── */
+    .go-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: #003b75;
+      color: white;
+      padding: 10px 16px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: bold;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.25);
+      transition: background 0.2s;
+      z-index: 999;
+    }
+
+    .go-top:hover {
+      background: #f4c400;
+      color: #003b75;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ══════════════════════════════════════════════
+       HEADER & NAV (shared template by Charith)
+       ════════════════════════════════════════════ -->
+  <header class="top-header">
+    <div class="header-container">
+      <img
+        src="images/logo.png"
+        alt="Clean Energy SDG 7 website logo"
+        class="logo"
+      />
+      <div class="text-area">
+        <h1>Clean Energy</h1>
+        <h2>SDG 7 – Affordable and Clean Energy</h2>
+        <p>Empowering a sustainable future for everyone</p>
+      </div>
+    </div>
+  </header>
+
+  <nav aria-label="Main navigation">
+    <ul class="nav-list">
+      <li><a href="home.html">Home</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="ais.html">Action Simulator</a></li>
+      <li><a href="feedback.html">Feedback</a></li>
+      <li><a href="team.html">Team</a></li>
+      <li><a href="profile.html">Profile</a></li>
+      <li><a href="sitemap.html">Sitemap</a></li>
+    </ul>
+  </nav>
+
+  <!-- ══════════════════════════════════════════════
+       MAIN CONTENT
+       ════════════════════════════════════════════ -->
+  <main id="top">
+
+    <!-- Hero -->
+    <div class="content-hero">
+      <h1>&#9728; Solar Energy</h1>
+      <p>How the power of the sun can fuel a cleaner, fairer, and more affordable world for everyone.</p>
+    </div>
+
+    <!-- ── Internal navigation ── -->
+    <nav class="internal-nav" aria-label="Page sections">
+      <h2>&#128196; Contents – Jump to a Section:</h2>
+      <ul>
+        <li><a href="#what-is-solar">What is Solar Energy?</a></li>
+        <li><a href="#how-it-works">How Solar Panels Work</a></li>
+        <li><a href="#benefits">Benefits of Solar Energy</a></li>
+        <li><a href="#solar-facts">Key Facts &amp; Figures</a></li>
+        <li><a href="#students-role">Your Role as a Student</a></li>
+        <li><a href="#future">The Future of Solar</a></li>
+        <li><a href="#take-action">Take Action Today</a></li>
+      </ul>
+    </nav>
+
+    <!-- ══════════════════════════
+         SECTION 1 – What is Solar
+         ══════════════════════════ -->
+    <section id="what-is-solar" class="content-section">
+      <h2>What is Solar Energy?</h2>
+      <p>
+        Solar energy is the energy harnessed directly from sunlight. It is one of the most abundant and
+        freely available sources of energy on our planet. The sun produces an enormous amount of energy
+        every second — far more than humanity could ever use — making it a virtually limitless resource.
+      </p>
+      <p>
+        Unlike fossil fuels such as coal, oil, and natural gas, solar energy produces <strong>no carbon
+        emissions</strong> when it generates electricity. This makes it a cornerstone of the global
+        effort to combat climate change and achieve the UN's Sustainable Development Goal 7:
+        Affordable and Clean Energy.
+      </p>
+
+      <!-- Image 1 -->
+      <img
+        src="images/solar-panels-field.jpg"
+        alt="A large field of solar panels generating electricity under a clear blue sky"
+        class="content-img"
+      />
+      <p class="img-caption">
+        Figure 1: A solar panel farm harnessing sunlight to generate clean electricity.
+        (Image: royalty-free via iStockPhoto)
+      </p>
+
+      <div class="fact-box">
+        <strong>Did you know?</strong> The amount of solar energy that reaches the Earth's surface in
+        just one hour is enough to power the entire world's energy needs for a full year.
+      </div>
+    </section>
+
+    <!-- ══════════════════════════
+         SECTION 2 – How It Works
+         ══════════════════════════ -->
+    <section id="how-it-works" class="content-section">
+      <h2>How Solar Panels Work</h2>
+      <p>
+        Solar panels — also called photovoltaic (PV) panels — work by converting sunlight into
+        electrical energy using semiconductor materials, most commonly silicon.
+      </p>
+
+      <h3>The Photovoltaic Effect</h3>
+      <p>
+        When photons from sunlight hit the solar cell, they knock electrons loose from their atoms.
+        This flow of electrons creates a direct current (DC) of electricity. An inverter then converts
+        this DC electricity into alternating current (AC), which is the type of electricity used in
+        homes and businesses.
+      </p>
+
+      <h3>Types of Solar Technology</h3>
+      <p>
+        There are several types of solar technology in use today. Photovoltaic panels are the most
+        common for home and commercial use. Concentrated Solar Power (CSP) uses mirrors to focus
+        sunlight and generate heat, which drives a turbine to produce electricity. Solar thermal
+        systems capture heat from the sun to warm water directly, reducing household energy bills.
+      </p>
+
+      <!-- Image 2 -->
+      <img
+        src="images/solar-how-works.jpg"
+        alt="Diagram showing how a solar panel converts sunlight into electricity through photovoltaic cells"
+        class="content-img"
+      />
+      <p class="img-caption">
+        Figure 2: How solar photovoltaic cells convert sunlight into usable electricity.
+        (Image: royalty-free via iStockPhoto)
+      </p>
+    </section>
+
+    <!-- ══════════════════════════
+         SECTION 3 – Benefits
+         ══════════════════════════ -->
+    <section id="benefits" class="content-section">
+      <h2>Benefits of Solar Energy</h2>
+      <p>
+        Solar energy offers a wide range of benefits — not just for the environment, but also for
+        individuals, communities, and economies around the world.
+      </p>
+
+      <h3>Environmental Benefits</h3>
+      <p>
+        Solar power generates electricity with zero carbon emissions during operation, meaning it
+        plays a critical role in reducing greenhouse gas concentrations in the atmosphere.
+        It also requires no water to generate electricity (unlike coal or nuclear plants), which
+        helps protect freshwater resources.
+      </p>
+
+      <h3>Economic Benefits</h3>
+      <p>
+        Once installed, solar panels have very low running costs. Households and businesses can
+        significantly reduce their electricity bills, and in many countries, they can sell excess
+        energy back to the grid. The global solar industry now employs millions of people, making
+        it a major driver of green job creation.
+      </p>
+
+      <h3>Social Benefits</h3>
+      <p>
+        Solar energy can bring electricity to remote communities that are not connected to the
+        national grid, improving access to lighting, clean water pumping, healthcare, and
+        education. This directly supports SDG 7's goal of ensuring affordable, reliable, and
+        modern energy access for all.
+      </p>
+
+      <!-- Image 3 -->
+      <img
+        src="images/solar-village.jpg"
+        alt="A rural village with solar panels installed on rooftops providing electricity to the community"
+        class="content-img"
+      />
+      <p class="img-caption">
+        Figure 3: Solar panels bringing electricity to a rural community.
+        (Image: royalty-free via iStockPhoto)
+      </p>
+    </section>
+
+    <!-- ══════════════════════════
+         SECTION 4 – Key Facts
+         ══════════════════════════ -->
+    <section id="solar-facts" class="content-section">
+      <h2>Key Facts &amp; Figures</h2>
+      <p>Solar energy is growing faster than any other energy source in history. Here are some
+         key statistics that illustrate its rapid rise:</p>
+
+      <div class="info-grid">
+        <div class="info-tile">
+          <span class="tile-num">3%</span>
+          <p>of global electricity now comes from solar — up from near zero in 2010</p>
+        </div>
+        <div class="info-tile">
+          <span class="tile-num">90%</span>
+          <p>reduction in solar panel costs over the past decade</p>
+        </div>
+        <div class="info-tile">
+          <span class="tile-num">1B+</span>
+          <p>people still lack access to electricity — solar can change this</p>
+        </div>
+        <div class="info-tile">
+          <span class="tile-num">4M+</span>
+          <p>jobs created globally in the solar energy industry</p>
+        </div>
+      </div>
+
+      <div class="fact-box">
+        <strong>SDG Connection:</strong> SDG 7 aims to ensure universal access to affordable,
+        reliable, and modern energy services by 2030. Solar energy is one of the most practical
+        ways to achieve this goal, especially in developing countries.
+      </div>
+    </section>
+
+    <!-- ══════════════════════════
+         SECTION 5 – Students Role
+         ══════════════════════════ -->
+    <section id="students-role" class="content-section">
+      <h2>Your Role as a Student</h2>
+      <p>
+        You might think you're too young or lack the resources to make a difference — but that's
+        not true. As a student, you have real opportunities to advocate for and participate in
+        the clean energy transition.
+      </p>
+
+      <h3>What Students Can Do Right Now</h3>
+      <ul class="action-list">
+        <li>Switch to a renewable energy supplier for your student accommodation</li>
+        <li>Unplug chargers and devices when not in use to reduce electricity waste</li>
+        <li>Join or start a sustainability society at your university</li>
+        <li>Advocate for solar panels to be installed on university buildings</li>
+        <li>Choose career paths and employers who invest in clean energy</li>
+        <li>Share knowledge about solar energy with family and friends</li>
+      </ul>
+
+      <!-- Image 4 -->
+      <img
+        src="images/students-solar.jpg"
+        alt="University students learning about solar panels during an outdoor sustainability workshop"
+        class="content-img"
+      />
+      <p class="img-caption">
+        Figure 4: Students engaging with solar energy at a university sustainability event.
+        (Image: royalty-free via iStockPhoto)
+      </p>
+    </section>
+
+    <!-- ══════════════════════════
+         SECTION 6 – Future
+         ══════════════════════════ -->
+    <section id="future" class="content-section">
+      <h2>The Future of Solar Energy</h2>
+      <p>
+        The future of solar energy is incredibly promising. Technological advancements are making
+        solar cells more efficient, cheaper, and more versatile than ever before.
+      </p>
+
+      <h3>Emerging Technologies</h3>
+      <p>
+        Perovskite solar cells are a new generation of solar technology that promise even higher
+        efficiency at lower manufacturing costs than traditional silicon cells. Solar roof tiles
+        — designed to look like ordinary roof shingles — are making it easier and more aesthetically
+        pleasing to integrate solar into buildings. Floating solar farms on reservoirs and lakes
+        are also gaining ground as a space-saving solution.
+      </p>
+
+      <h3>Solar and Energy Storage</h3>
+      <p>
+        One of the key challenges with solar energy has been storing it for use when the sun is
+        not shining. Battery storage technology, particularly lithium-ion and emerging solid-state
+        batteries, is rapidly improving. Pairing solar panels with battery storage systems allows
+        homes and businesses to run on solar power even at night or during cloudy days.
+      </p>
+
+      <div class="fact-box">
+        <strong>Looking ahead:</strong> The International Energy Agency (IEA) projects that solar
+        power could become the single largest source of electricity globally by 2050 — making it
+        the backbone of a clean energy future.
+      </div>
+    </section>
+
+    <!-- ══════════════════════════
+         SECTION 7 – Take Action
+         ══════════════════════════ -->
+    <section id="take-action" class="content-section">
+      <h2>Take Action Today</h2>
+      <p>
+        Every action counts. Whether you are a student, a tenant, a homeowner, or a future
+        professional — there are meaningful steps you can take to support the growth of solar
+        energy and help achieve SDG 7.
+      </p>
+
+      <ul class="action-list">
+        <li>Sign petitions calling for renewable energy investment in your community</li>
+        <li>Talk to your landlord about adding solar panels to your property</li>
+        <li>Support businesses and organisations that use renewable energy</li>
+        <li>Learn more about solar energy through free online courses and resources</li>
+        <li>Reduce your personal energy consumption to lower demand for fossil fuels</li>
+      </ul>
+
+      <div class="fact-box">
+        <strong>Remember:</strong> The goal is not perfection — it's progress. Each small action
+        by each individual, multiplied across millions of people, creates the kind of change that
+        drives a global clean energy revolution.
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ── Go to Top button (HTML/CSS only – no JavaScript) ── -->
+  <a href="#top" class="go-top" aria-label="Go back to the top of the page">&#8679; Top</a>
+
+  <!-- ══════════════════════════════════════════════
+       FOOTER (Student 4 – Mavinu)
+       ════════════════════════════════════════════ -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-left">
+        <h3>Clean Energy – SDG 7</h3>
+        <p>Student 4: Mavinu</p>
+        <p>Role: User Profile &amp; Sitemap</p>
+      </div>
+      <div class="footer-links">
+        <a href="pageEditor_ST4.html" target="_blank">Page Editor – Mavinu</a>
+        <a href="validation_ST4.html" target="_blank">Validation – Mavinu</a>
+        <a href="https://www.un.org/sustainabledevelopment/energy/" target="_blank" rel="noopener">
+          Accessibility &amp; Compliance
+        </a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2026 SOLAR
+    </div>
+  </footer>
+
+</body>
+</html>

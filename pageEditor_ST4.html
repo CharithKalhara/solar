@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Editor – Mavinu – Student 4 – EnergyAct</title>
+    <link rel="stylesheet" href="css/pageEditor_validator.css">
+</head>
+<body>
+
+<header id="top">
+    <h1>EnergyAct – SDG 7: Affordable and Clean Energy</h1>
+</header>
+
+<section class="stud">
+    <h2>Mavinu &nbsp;|&nbsp; Student 4 &nbsp;|&nbsp; Role: User Profile &amp; Sitemap</h2>
+</section>
+
+<div class="container">
+
+    <!--  MAIN CONTENT  -->
+    <main>
+
+        <!-- 
+             PAGE 1 – USER PROFILE
+              -->
+        <section>
+            <h2 id="profile">User Profile Page</h2>
+
+            <h3>Technical Description</h3>
+            <p>
+                The User Profile page (<code>profile.html</code>) is built on the shared team template, using
+                the global <code>structure.css</code> for header, navigation, footer, and base typography.
+                All page-specific rules are held in an embedded <code>&lt;style&gt;</code> block so they never
+                conflict with the global CSS.
+            </p>
+            <p>
+                <strong>HTML structure:</strong> The page uses the standard <code>&lt;header&gt;</code>,
+                <code>&lt;main&gt;</code>, and <code>&lt;footer&gt;</code> template. Inside
+                <code>&lt;main&gt;</code>, the layout is divided into four logical zones: a
+                <em>progress bar area</em>, a <em>step-button row</em>, a <em>revisit panel</em>, and the
+                <em>profile output card</em>. Each zone is a plain <code>&lt;div&gt;</code> with a
+                descriptive <code>id</code> so JavaScript can target it directly.
+            </p>
+            <p>
+                <strong>CSS techniques:</strong> The progress bar uses a two-element approach — an outer
+                wrapper (<code>.progress-wrapper</code>) styled with a fixed height, rounded corners, and a
+                grey background, and an inner fill (<code>.progress-bar</code>) whose <code>width</code>
+                property is updated by JavaScript. A <code>transition: width 0.6s ease</code> rule gives the
+                bar a smooth animation as it fills. Flexbox (<code>display: flex; flex-wrap: wrap; gap: 12px</code>)
+                is used on <code>.step-buttons</code> to keep the four control buttons in a tidy responsive row
+                that wraps gracefully on small screens. Each profile section card uses
+                <code>border-left: 4px solid #c46a1b</code> to create a visual accent consistent with the
+                site's orange palette. A <code>@media (max-width: 600px)</code> block switches the button row
+                to a vertical column on mobile.
+            </p>
+            <p>
+                <strong>JavaScript:</strong> All profile data is stored in a single object (<code>profileData</code>)
+                and step completion is tracked in a second object (<code>stepDone</code>). The main dispatcher
+                <code>runStep(step)</code> delegates to one of three dedicated functions —
+                <code>collectStep1()</code>, <code>collectStep2()</code>, <code>collectStep3()</code> — each
+                of which fires three sequential <code>prompt()</code> calls. Pressing Cancel on the first
+                prompt of any step triggers an early return, skipping the step without breaking the flow.
+                Completed data is written to the DOM via <code>textContent</code> on individual
+                <code>&lt;span&gt;</code> elements. <code>updateProgress()</code> recounts the completed steps
+                and sets the bar's <code>style.width</code> and the text node simultaneously.
+                <code>checkAllComplete()</code> reveals the green confirmation banner and the
+                <em>✓ Complete</em> badge only when all three <code>stepDone</code> flags are true.
+                <code>resetProfile()</code> clears every field and re-disables Step 2 and Step 3 buttons,
+                returning the page to its initial state after a <code>confirm()</code> dialogue.
+            </p>
+
+            <h3>Accessibility</h3>
+            <p>
+                The progress bar wrapper carries an <code>aria-label="Profile completion progress"</code>
+                attribute so screen readers announce its purpose. All buttons have clear, descriptive visible
+                labels ("Step 1: Basic Details", "Revisit Step 1", etc.) — no icon-only controls that
+                would be ambiguous without sight. The active navigation link (<code>class="active"</code>)
+                signals the current page to both sighted users and assistive technologies. Text contrast
+                throughout follows the site's orange-on-white and white-on-dark-navy palette, which meets
+                WCAG AA contrast requirements. The page uses semantic heading hierarchy:
+                <code>&lt;h2&gt;</code> for the page title, <code>&lt;h4&gt;</code> for each profile
+                sub-section card, so the document outline is logical.
+            </p>
+
+            <h3>Link to the validation page</h3>
+            <p>
+                <a href="validation_ST4.html#profileVal">View the HTML validation report for the User Profile page.</a>
+            </p>
+
+            <h3>Link to the page</h3>
+            <p>
+                <a href="profile.html" target="_blank">Open the User Profile page.</a>
+            </p>
+        </section>
+
+        <!-- PAGE 2 – SITEMAP -->
+        <section>
+            <h2 id="sitemap">Sitemap Page</h2>
+
+            <h3>Technical Description</h3>
+            <p>
+                The Sitemap page (<code>sitemap.html</code>) uses the shared team template and global CSS,
+                with additional page-specific styling in an embedded <code>&lt;style&gt;</code> block.
+                The diagram itself is a fully hand-coded inline SVG — no bitmap images, no third-party
+                libraries.
+            </p>
+            <p>
+                <strong>SVG structure:</strong> The SVG uses a fixed <code>viewBox="0 0 900 580"</code>
+                combined with <code>width: 100%</code> and <code>height: auto</code> on the containing class
+                so the diagram scales proportionally on all screen sizes. The hierarchy is rendered using
+                <code>&lt;line&gt;</code> elements drawn first (so they sit behind nodes), followed by
+                node groups. Each node is a <code>&lt;g&gt;</code> (group) element wrapped in an
+                <code>&lt;a&gt;</code> anchor tag, making the entire node — both its rectangle and its label
+                — a clickable link to the corresponding page.
+            </p>
+            <p>
+                <strong>CSS techniques:</strong> Node styles are applied with class selectors
+                (<code>.node rect</code>, <code>.node-home rect</code>, <code>.node-highlight rect</code>)
+                rather than inline SVG attributes, which keeps the SVG clean and easy to maintain.
+                A <code>transition: fill 0.25s ease</code> on <code>.node rect</code> produces a smooth
+                colour change on hover. The <code>.node:hover rect</code> rule switches the fill to amber
+                (<code>#ffd580</code>) and <code>.node:hover text</code> simultaneously turns the label
+                dark so it remains readable against the lighter background — a two-rule coordination
+                pattern. Student 4's pages (User Profile, Sitemap, and the Student 4 Content node) use
+                the <code>.node-highlight</code> class (dark navy, blue stroke) to visually distinguish
+                them from the rest. A dashed connector line (<code>stroke-dasharray="5,4"</code>) marks
+                the logical branch to the "All Content Pages" group node, separating it visually from
+                the solid main-page connectors.
+            </p>
+            <p>
+                <strong>Accessibility:</strong> Every node group carries an <code>aria-label</code>
+                attribute and a child <code>&lt;title&gt;</code> element — the two recommended methods
+                for giving SVG elements an accessible name. A <code>tabindex="0"</code> attribute on
+                each <code>&lt;a&gt;</code> wrapper ensures the node is reachable by keyboard Tab
+                navigation. The <code>.node:focus rect</code> and <code>.node:focus text</code> rules
+                mirror the hover styles, providing a visible focus ring for keyboard users. The overall
+                SVG carries <code>role="img"</code> and <code>aria-label="EnergyAct website sitemap
+                diagram"</code> for screen readers. A colour key below the diagram provides a legend
+                for users who may find the colour coding alone insufficient.
+            </p>
+
+            <h3>Accessibility</h3>
+            <p>
+                In addition to the SVG-specific measures above: the page heading structure is semantic
+                (<code>&lt;h2&gt;</code> for "Website Sitemap"), the colour legend uses plain HTML with
+                inline <code>&lt;span&gt;</code> boxes and text labels rather than colour alone, and all
+                navigation links in the header inherit the team's global active-page styling. The
+                sitemap is therefore usable by keyboard-only users, screen-reader users, and users on
+                small screens thanks to the responsive SVG viewBox.
+            </p>
+
+            <h3>Link to the validation page</h3>
+            <p>
+                <a href="validation_ST4.html#sitemapVal">View the HTML validation report for the Sitemap page.</a>
+            </p>
+
+            <h3>Link to the page</h3>
+            <p>
+                <a href="sitemap.html" target="_blank">Open the Sitemap page.</a>
+            </p>
+        </section>
+
+        <!--  PAGE 3 – CONTENT PAGE (Solar Energy) -->
+        <section>
+            <h2 id="content">Content Page – Solar Energy</h2>
+
+            <h3>Technical Description</h3>
+            <p>
+                The Content page (<code>content_ST4.html</code>) follows the shared team template and
+                links to the global <code>structure.css</code>. An embedded <code>&lt;style&gt;</code>
+                block adds more than fifteen page-specific rules for typography, section layout, image
+                presentation, and the internal navigation menu.
+            </p>
+            <p>
+                <strong>HTML structure:</strong> The page title is marked as <code>&lt;h1 id="top"&gt;</code>
+                — the <code>id="top"</code> serves as the anchor target for the fixed "Go to Top" button
+                at the bottom of the page, implemented using only HTML and CSS (<code>position: fixed</code>)
+                without any JavaScript. Six content sections are each wrapped in a
+                <code>&lt;section&gt;</code> with a unique <code>id</code> (e.g.
+                <code>id="what-is-solar"</code>), enabling the internal navigation menu at the top of
+                <code>&lt;main&gt;</code> to jump directly to each section via anchor links
+                (<code>href="#section-id"</code>). The internal nav is a <code>&lt;nav&gt;</code> element
+                with <code>aria-label="Page contents"</code> to distinguish it from the site-wide header
+                navigation.
+            </p>
+            <p>
+                <strong>CSS techniques:</strong> Custom list styling (<code>list-style: none</code>,
+                <code>border-left: 3px solid #c46a1b</code>, <code>background-color: #fdf5ee</code>,
+                <code>border-radius: 0 6px 6px 0</code>) replaces the default bullet points with
+                orange-accented cards, making each list item visually distinct and thematically consistent.
+                Images use the <code>.content-img</code> class: <code>max-width: 600px</code> with
+                <code>display: block; margin: auto</code> for centred responsive sizing, plus a subtle
+                box shadow and rounded border for polish. A <code>@media (max-width: 600px)</code> rule
+                scales the h1 and h2 font sizes and adjusts the Go-to-Top button padding for mobile.
+            </p>
+            <p>
+                <strong>Content:</strong> The page is structured into six sections covering what solar
+                energy is, its link to SDG 7, types of technology, student actions, global statistics,
+                and the future of solar. All content is original. Four relevant images are included,
+                each with meaningful descriptive <code>alt</code> text and a styled caption below.
+            </p>
+
+            <h3>Accessibility</h3>
+            <p>
+                Semantic heading hierarchy is maintained throughout: one <code>&lt;h1&gt;</code> for the
+                page title, <code>&lt;h2&gt;</code> for section headings, <code>&lt;h3&gt;</code> for
+                sub-topics. All four images carry descriptive <code>alt</code> attributes. The internal
+                navigation menu uses a labelled <code>&lt;nav aria-label="Page contents"&gt;</code> so
+                screen readers can identify it separately from the site navigation. The fixed
+                "Go to Top" link has an <code>aria-label="Go back to top of page"</code> to clarify
+                its purpose. Text colour against the page background maintains WCAG AA contrast. All
+                image captions are marked as <code>&lt;p class="img-caption"&gt;</code> so they are
+                read in document order by assistive technologies.
+            </p>
+
+            <h3>Link to the validation page</h3>
+            <p>
+                <a href="validation_ST4.html#contentVal">View the HTML validation report for the Content page.</a>
+            </p>
+
+            <h3>Link to the page</h3>
+            <p>
+                <a href="content_ST4.html" target="_blank">Open the Solar Energy Content page.</a>
+            </p>
+        </section>
+
+        <!-- CHALLENGES AND LESSONS LEARNED -->
+        <section>
+            <h2 id="challenge">Challenges and Lessons Learned</h2>
+
+            <p>
+                <strong>SVG coordinate system:</strong> The biggest challenge on the Sitemap was
+                positioning nodes accurately using the SVG coordinate system. Initially, connector lines
+                did not align with the centres of rectangles because I was confusing the
+                <code>x/y</code> of the <code>&lt;rect&gt;</code> (its top-left corner) with the centre
+                point needed by <code>&lt;line&gt;</code>. I resolved this by carefully calculating
+                centre-x as <code>rect-x + rect-width / 2</code> for every node and keeping a hand-drawn
+                sketch alongside the code during development.
+            </p>
+            <p>
+                <strong>JavaScript prompt flow:</strong> Managing the multi-step prompt sequence on the
+                User Profile page required careful use of <code>null</code> checks. Early versions
+                mistakenly treated an empty string input (user presses OK without typing) the same as
+                pressing Cancel, which broke the skip logic. I fixed this by explicitly checking
+                <code>if (value === null)</code> for skip detection, and separately using the
+                <code>|| "Not provided"</code> fallback only for empty strings.
+            </p>
+            <p>
+                <strong>Responsive SVG:</strong> Making the sitemap readable on mobile required removing
+                fixed pixel <code>width</code> and <code>height</code> attributes from the
+                <code>&lt;svg&gt;</code> tag and relying entirely on the <code>viewBox</code> with a
+                CSS <code>width: 100%</code> rule. This taught me that SVG responsiveness depends on the
+                viewport scaling the viewBox, not on pixel dimensions on the element itself.
+            </p>
+            <p>
+                <strong>Lesson learned:</strong> Planning page structure on paper before writing code
+                saves significant debugging time — particularly for pages that mix HTML, CSS,
+                JavaScript, and SVG, where mistakes in one layer can silently break another.
+            </p>
+        </section>
+
+        <!-- 
+             COMPLIANCE
+              -->
+        <section>
+            <h2 id="compliance">Compliance</h2>
+            <p>
+                All three pages I created comply with JANET regulations governing academic web publication
+                in the following ways:
+            </p>
+            <p>
+                <strong>Content:</strong> All text content on the Solar Energy page is original and
+                written by me. No text has been copied from the UN SDG website or any other source.
+                Where factual statements are made (e.g. about the number of people without electricity),
+                these reflect widely reported public figures used in an educational context.
+            </p>
+            <p>
+                <strong>Images:</strong> Images referenced in <code>content_ST4.html</code> are either
+                royalty-free resources (credited in the References section) or placeholder paths
+                intended to be replaced with correctly licensed images before final submission.
+                All images include descriptive <code>alt</code> text as required for both accessibility
+                and ethical image use.
+            </p>
+            <p>
+                <strong>Code integrity:</strong> All HTML, CSS, and JavaScript was written by me
+                without copying or adapting templates from the internet. No pre-built SVG libraries
+                or diagram generators were used for the sitemap — it was hand-coded.
+            </p>
+            <p>
+                <strong>Privacy:</strong> The User Profile page does not collect, transmit, or store
+                any user data on a server. All information entered via <code>prompt()</code> exists
+                only in the browser's JavaScript memory for the duration of the session and is
+                discarded when the page is closed or reset.
+            </p>
+            <p>
+                <a href="https://intranet.ecs.westminster.ac.uk/modules/4COSC011W/compliance.html"
+                   target="_blank">See the module compliance notes for full details.</a>
+            </p>
+        </section>
+
+        <!-- 
+             GROUP MEETINGS LOG
+             -->
+        <section>
+            <h2 id="group">Group Meetings and Individual Contribution Log</h2>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th colspan="6">Group Meetings and Contribution Log – Mavinu (Student 4)</th>
+                    </tr>
+                    <tr>
+                        <th>Meeting</th>
+                        <th>Date &amp; Time</th>
+                        <th>Format</th>
+                        <th>Objective</th>
+                        <th>Attended</th>
+                        <th>Your Individual Contribution</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>3 Feb 2026</td>
+                        <td>Face-to-face</td>
+                        <td>Agree SDG and assign roles</td>
+                        <td>Yes</td>
+                        <td>I agreed to take responsibility for the User Profile page and the Sitemap. I contributed to the discussion selecting SDG 7 (Affordable and Clean Energy).</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>10 Feb 2026</td>
+                        <td>Online (Teams)</td>
+                        <td>Agree visual identity and colour palette</td>
+                        <td>Yes</td>
+                        <td>I suggested the orange (#c46a1b) and dark navy (#1f2937) accent colours that became the team's palette. I agreed to use the Student 4 navy highlight on my sitemap nodes.</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>17 Feb 2026</td>
+                        <td>Online (Teams)</td>
+                        <td>Review shared template from Student 1 and confirm file names</td>
+                        <td>Yes</td>
+                        <td>I tested the shared template on my pages and confirmed the navigation links for profile.html and sitemap.html worked correctly.</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>03 Mar 2026</td>
+                        <td>Hybrid</td>
+                        <td>Progress review – mid-point check</td>
+                        <td>Yes</td>
+                        <td>I demonstrated the working User Profile JavaScript prompt flow and the draft SVG sitemap. I received feedback to improve mobile responsiveness of the SVG.</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>17 Mar 2026</td>
+                        <td>Face-to-face</td>
+                        <td>Cross-review each other's pages and fix navigation links</td>
+                        <td>Yes</td>
+                        <td>I reviewed teammates' pages to confirm all links to profile.html and sitemap.html functioned correctly, and I added the aria-label attributes to the SVG nodes following accessibility feedback.</td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td>24 Mar 2026</td>
+                        <td>Online (Teams)</td>
+                        <td>Final review, validation checks, and submission preparation</td>
+                        <td>Yes</td>
+                        <td>I ran W3C validation on all three of my pages (profile.html, sitemap.html, content_ST4.html), corrected a stray closing tag error in sitemap.html, and prepared screenshots for the Validation page.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- REFERENCES-->
+        <section>
+            <h2 id="ref">References</h2>
+            <ul class="ref">
+                <li>Economou, D. (2026) <i>4COSC011W Web Design and Development – Lecture Notes.</i> University of Westminster. (Accessed: March 2026).</li>
+                <li>W3Schools (2025) <i>HTML Tutorial.</i> Available at: <a href="https://www.w3schools.com/html/" target="_blank">https://www.w3schools.com/html/</a> (Last accessed: March 2026).</li>
+                <li>W3Schools (2025) <i>SVG Tutorial.</i> Available at: <a href="https://www.w3schools.com/graphics/svg_intro.asp" target="_blank">https://www.w3schools.com/graphics/svg_intro.asp</a> (Last accessed: March 2026).</li>
+                <li>MDN Web Docs (2025) <i>JavaScript prompt().</i> Available at: <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/prompt" target="_blank">https://developer.mozilla.org/en-US/docs/Web/API/Window/prompt</a> (Last accessed: March 2026).</li>
+                <li>MDN Web Docs (2025) <i>Accessible SVG.</i> Available at: <a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/img_role" target="_blank">https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/img_role</a> (Last accessed: March 2026).</li>
+                <li>iStock (2025) <i>Royalty-free images.</i> Available at: <a href="https://www.istockphoto.com/" target="_blank">https://www.istockphoto.com/</a> (Last accessed: March 2026).</li>
+                <li>World Wide Web Consortium (2025) <i>W3C Markup Validation Service.</i> Available at: <a href="https://validator.w3.org/" target="_blank">https://validator.w3.org/</a> (Last accessed: March 2026).</li>
+            </ul>
+        </section>
+
+        <p class="top"><a href="#top">Go top</a></p>
+    </main>
+
+    <!-- ===== SIDEBAR ===== -->
+    <aside>
+        <h3>Student 4 – Mavinu</h3>
+        <ul class="top-level-ul">
+            <li><strong>Pages developed:</strong></li>
+            <ul>
+                <li><a href="#profile">User Profile</a></li>
+                <li><a href="#sitemap">Sitemap</a></li>
+                <li><a href="#content">Content – Solar Energy</a></li>
+            </ul>
+            <li><a href="#challenge">Challenges &amp; Lessons Learned</a></li>
+            <li><a href="#compliance">Compliance</a></li>
+            <li><a href="#group">Group Meetings Log</a></li>
+            <li><a href="#ref">References</a></li>
+        </ul>
+    </aside>
+
+</div>
+
+<footer>
+    <p>EnergyAct &ndash; SDG 7: Affordable and Clean Energy</p>
+    <p>Student 4: Mavinu &ndash;
+        <a href="pageEditor_ST4.html">My Page Editor</a> |
+        <a href="validation_ST4.html">Validation</a>
+    </p>
+    <p><a href="#">Accessibility Statement</a></p>
+</footer>
+
+</body>
+</html>

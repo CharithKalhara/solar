@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+          .intro {
+              background-color: #fff8cc;
+              border: 1px solid #d9c85f;
+              padding: 20px;
+              margin: 20px 0;
+          }
+
+          .intro h2 {
+              margin-top: 0;
+              margin-bottom: 10px;
+              font-size: 24px;
+              color: #222;
+          }
+
+          .intro p {
+              margin-bottom: 12px;
+              font-size: 16px;
+              line-height: 1.6;
+              color: #333;
+          }.content-cards {
+              display: flex;
+              justify-content: center;
+              gap: 20px;
+              padding: 20px;
+          }
+
+          .card {
+              width: 250px;
+              border: 1px solid black;
+              padding: 20px;
+              background-color: white;
+          }.home-cards {
+              padding: 20px;
+          }
+
+          .home-cards h2 {
+              margin: 0 0 20px 0;
+              text-align: center;
+              font-size: 28px;
+          }
+
+          .card-container {
+              display: flex;
+              gap: 20px;
+              justify-content: center;
+              flex-wrap: wrap;
+          }
+
+          .card {
+              width: 300px;
+              background-color: white;
+              border: 1px solid #999;
+              padding: 15px;
+              box-sizing: border-box;
+              box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+          }
+
+          .card img {
+              width: 100%;
+              height: 180px;
+              object-fit: cover;
+              display: block;
+              margin-bottom: 12px;
+          }
+
+          .card h3 {
+              margin: 0 0 10px 0;
+              font-size: 20px;
+          }
+
+          .card p {
+              margin: 0 0 12px 0;
+              font-size: 15px;
+              line-height: 1.5;
+          }
+
+          .card ul {
+              margin: 0;
+              padding-left: 20px;
+          }
+
+          .card li {
+              margin-bottom: 6px;
+          }
+          .content-gallery {
+            padding: 40px 20px;
+            text-align: center;
+          }
+
+          .content-gallery h2 {
+            font-size: 28px;
+            margin-bottom: 30px;
+          }
+
+          .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 25px;
+          }
+
+          .content-card {
+            width: 280px;
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            overflow: hidden;
+            text-decoration: none;
+            color: black;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+          }
+
+          .content-card:hover {
+            transform: translateY(-5px);
+          }
+
+          .content-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+          }
+
+          .content-card h3 {
+            margin: 15px 10px 10px;
+            font-size: 20px;
+          }
+
+          .content-card p {
+            margin: 0 10px 15px;
+            font-size: 14px;
+            line-height: 1.5;
+          }
+          .nav-list a.active {
+            background-color: #0b3a6e;
+            color: white;
+            font-weight: 600;
+            box-shadow: inset 0 -4px 0 #f4c400;
+            }
+
+.nav-list a.active:hover {
+    background-color: #0b3a6e;
+    color: white;
+}
+          
+  </style>
+  </head>
+  <body>
+    <header class="top-header">
+    <div class="header-container">
+        <img src="images/logo.png" alt="United Nations logo" class="logo">
+
+        <div class="text-area">
+            <h1>AFFORDABLE AND CLEAN ENERGY</h1>
+            <h2>Ensure access to affordable and clean energy for all</h2>
+            <p>Sustainable Development</p>
+        </div>
+    </div>
+    </header>
+
+    <main>
+      <nav>
+        <ul class="nav-list">
+            <li><a href="home.html" class="active">Home</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="ais.html">AIS</a></li>
+            <li><a href="feedback.html">Feedback</a></li>
+            <li><a href="team.html">Team</a></li>
+            <li><a href="profile.html">Profile</a></li>
+            <li><a href="sitemap.html">Sitemap</a></li>
+        </ul>
+    </nav>
+    <section class="intro">
+        <h2>Affordable and Clean Energy for Everyone</h2>
+        <p>
+            Energy is a basic part of daily life, but many people still do not have
+            safe, reliable, and affordable access to it. Our website focuses on
+            Sustainable Development Goal 7 and shows how students and communities
+            can support cleaner and more responsible energy use.
+        </p>
+        <p>
+            We aim to raise awareness, promote practical action, and encourage simple
+            changes that can create a more sustainable future. Small actions today
+            can help build a cleaner tomorrow.
+        </p>
+    </section>
+    <section class="home-cards" aria-labelledby="cards-heading">
+    <h2 id="cards-heading">Why SDG 7 Matters</h2>
+
+    <div class="card-container">
+        <article class="card">
+            <img src="images/energy-access.jpg" alt="Homes and communities gaining access to reliable electricity">
+            <h3>Why Clean Energy Matters Today</h3>
+            <p>
+                Affordable and clean energy is important because people need safe,
+                reliable, and modern power for education, health, work, and daily life.
+                It also helps reduce pollution and supports a better future.
+            </p>
+            <ul>
+                <li>Improves quality of life</li>
+                <li>Supports schools and communities</li>
+                <li>Reduces environmental harm</li>
+            </ul>
+        </article>
+
+        <article class="card">
+            <img src="images/mission.jpg" alt="People working together to support sustainable energy solutions">
+            <h3>Our Mission</h3>
+            <p>
+                Our website promotes action, not just information. We want to show how
+                students and communities can support affordable and clean energy through
+                simple, realistic, and responsible choices.
+            </p>
+            <ul>
+                <li>Raise awareness</li>
+                <li>Encourage practical action</li>
+                <li>Promote sustainable thinking</li>
+            </ul>
+        </article>
+
+        <article class="card">
+            <img src="images/action.jpg" alt="A student using energy efficiently in everyday life">
+            <h3>What You Can Do</h3>
+            <p>
+                Everyone can help support SDG 7. Small daily actions can save energy,
+                reduce waste, and encourage more responsible use of resources in homes,
+                schools, and public spaces.
+            </p>
+            <ul>
+                <li>Turn off unused lights and devices</li>
+                <li>Use energy-efficient equipment</li>
+                <li>Support renewable energy awareness</li>
+            </ul>
+        </article>
+    </div>
+    </section>
+    <section class="content-gallery">
+  <h2>Content Gallery</h2>
+
+  <div class="card-container">
+    <a href="content_ST1.html" class="content-card">
+      <img src="images/img4.jpg" alt="Innovation projects">
+      <h3>Innovation Projects</h3>
+      <p>Discover projects that improve sustainable living.</p>
+    </a>
+    <a href="content_ST2.html" class="content-card">
+    <img src="images/img1.jpg" alt="Students supporting affordable and clean energy">
+    <h3>Energy-Saving Actions</h3>
+    <p>Learn how students can support affordable and clean energy in everyday life.</p>
+</a>
+
+    <a href="content_ST3.html" class="content-card">
+      <img src="images/img2.jpg" alt="Sustainable technology">
+      <h3>Sustainable Technology</h3>
+      <p>Explore new technology that supports clean energy.</p>
+    </a>
+
+    <a href="content_ST4.html" class="content-card">
+      <img src="images/img3.jpg" alt="Global development">
+      <h3>Solar Energy</h3>
+      <p>How the power of the sun can fuel a cleaner, fairer, and more affordable world for everyone.</p>
+    </a>
+
+    
+    </div>
+    </section>
+    
+    </main>
+
+    <footer class="site-footer">
+    <div class="footer-container">
+    <div class="footer-left">
+      <h3>Affordable and Clean Energy</h3>
+      <p>Ensure access to affordable, reliable, and modern energy for all</p>
+      <p>Sustainable Development Goal 7</p>
+    </div>
+
+    <div class="footer-links">
+      <a href="pageEditor_ST1.html">Page Editor</a>
+      <a href="validation_ST1.html">Validation</a>
+      <a href="sitemap.html">Sitemap</a>
+      <a href="profile.html">User Profile</a>
+    </div>
+    </div>
+
+  <div class="footer-bottom">
+    <p>© 2026 SOLAR</p>
+  </div>
+</footer>
+  </body>
+</html>

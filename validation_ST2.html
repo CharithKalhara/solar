@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validator Page - Dineth Ediriweera</title>
+
+    <link rel="stylesheet" href="structure.css" />         <!-- Shared site styles (same as main.html) -->
+    <link rel="stylesheet" href="css/pageEditor_validator.css"> <!-- Validator-specific styles -->
+</head>
+<body>
+
+    <header id="top">
+        <h1>SDG 7: Affordable and Clean Energy header</h1>
+    </header>
+
+    <section class="stud">
+        <h2>Dineth Ediriweera, SOLAR, Student 2 – Splash Screen | AIS | Content Page</h2>
+    </section>
+
+    <div class="container">
+        <!-- Main content area -->
+        <main class="page-container">
+
+            <section>
+                <h2 id="splashVal">Splash Screen validation report</h2>
+                    <p>
+                        The Splash Screen (<code>splash.html</code>) was validated using the W3C Markup Validation Service 
+                        and passed with <strong>no errors</strong>. The validator displayed one informational notice 
+                        regarding the <code>&lt;meta http-equiv="refresh"&gt;</code> tag used for the automatic redirect. 
+                        This is not an error — it is a usability advisory note because some users may not be able to 
+                        follow automatic redirects. The tag is required by the coursework specification and was therefore 
+                        kept intentionally. No structural or syntax errors were present, confirming that the page uses 
+                        valid HTML5 with correctly nested elements and well-formed metadata throughout.
+                    </p>
+                    <img src="validationSnapshots/validation-splash.png" alt="W3C validation screenshot for splash.html showing no errors">
+
+                <h3>Back to Page Editor page</h3>
+                    <p><a href="pageEditor_ST2.html#splash">Back to the Splash Screen section in the Page Editor.</a></p>
+            </section>
+
+            <section>
+                <h2 id="aisVal">Action Impact Simulator (AIS) validation report</h2>
+                    <p>
+                        The Action Impact Simulator (<code>ais.html</code>) was validated using the W3C Markup Validation 
+                        Service and passed with <strong>no errors</strong>. During the initial validation run, one error 
+                        was identified: <code>&lt;h2&gt;</code> headings inside the action card 
+                        <code>&lt;article&gt;</code> elements broke the document heading hierarchy because the 
+                        section-level heading was also an <code>&lt;h2&gt;</code>. This was resolved by changing the 
+                        card headings to <code>&lt;h3&gt;</code>, restoring a correct and logical heading order. After 
+                        this fix the page validated cleanly with no errors and no warnings. The external JavaScript 
+                        file reference (<code>js/ais.js</code>) was also confirmed to be correctly linked.
+                    </p>
+                    <img src="validationSnapshots/validation-ais.png" alt="W3C validation screenshot for ais.html showing no errors">
+
+                <h3>Back to Page Editor page</h3>
+                    <p><a href="pageEditor_ST2.html#ais">Back to the AIS section in the Page Editor.</a></p>
+            </section>
+
+            <section>
+                <h2 id="contentVal">Content Page validation report</h2>
+                    <p>
+                        The Content Page (<code>content_ST2.html</code>) was validated using the W3C Markup Validation 
+                        Service and passed with <strong>no errors</strong>. The validator confirmed that all internal 
+                        anchor links using <code>href="#section-id"</code> correctly match the corresponding 
+                        <code>id</code> attributes on their target sections, the heading hierarchy from 
+                        <code>&lt;h1&gt;</code> to <code>&lt;h2&gt;</code> is properly maintained throughout, and all 
+                        images include <code>alt</code> attributes. The embedded <code>&lt;style&gt;</code> block was 
+                        also confirmed as correctly formed CSS. No modifications were required after the initial 
+                        validation run.
+                    </p>
+                    <img src="validationSnapshots/validation-content-st2.png" alt="W3C validation screenshot for content_ST2.html showing no errors">
+
+                <h3>Back to Page Editor page</h3>
+                    <p><a href="pageEditor_ST2.html#content">Back to the Content Page section in the Page Editor.</a></p>
+            </section>
+
+            <p class="top"><a href="#top">Go top</a></p>
+        </main>
+
+        <!-- Sidebar area -->
+        <aside>
+            <h3>Core pages validated:</h3>
+
+            <ul class="top-level-ul">
+                <li>Student 2 – Dineth Ediriweera</li>
+                <ul>
+                    <li><a href="#splashVal">Splash Screen</a></li>
+                    <li><a href="#aisVal">Action Impact Simulator</a></li>
+                    <li><a href="#contentVal">Content Page</a></li>
+                </ul>
+            </ul>
+        </aside>
+    </div>
+     <footer class="site-footer">
+    <p><a href="pageEditor_ST2.html">Page Editor</a></p>
+    <p><a href="validation_ST2.html">Validation</a></p>
+    <p>Dineth Ediriweera | Student 2</p>
+    <p><a href="sitemap.html">Accessibility</a></p>
+  </footer>
+
+</body>
+</html>

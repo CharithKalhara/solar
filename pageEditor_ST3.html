@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Editor - E.A.C.P.Edirisingha (Student 3)</title>
+    <link rel="stylesheet" href="css/pageEditor_validator.css">
+    <style>
+        .site-footer {
+    background-color: #003b75;
+    color: white;
+    margin-top: 50px;
+    padding-top: 30px;
+}   
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.footer-left h3 {
+  margin: 0 0 10px;
+  font-size: 22px;
+}
+
+.footer-left p {
+  margin: 5px 0;
+  font-size: 14px;
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer-links a {
+  color: white;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
+  text-align: center;
+  padding: 15px 20px;
+  font-size: 13px;
+}
+    </style>
+
+</head>
+<body>
+
+    <header id="top">
+        <h1>SDG 7: Affordable and Clean Energy</h1>
+    </header>
+
+    <div class="container">
+        <main>
+            <section class="stud">
+                <h1>Page Editor - Student 3</h1>
+                <p><strong>Name:</strong> E.A.C.P.Edirisingha</p>
+                <p><strong>Role:</strong> Feedback page & Team page</p>
+            </section>
+
+            <hr>
+
+            <section id="feedback">
+                <h2>Feedback & Program Directory</h2>
+                <h3>Technical Description</h3>
+                <p>The page utilizes semantic HTML5 elements like <code>&lt;header&gt;</code>, <code>&lt;main&gt;</code>, and <code>&lt;section&gt;</code> to organize content effectively. I implemented a scrollable program card layout using <strong>CSS Flexbox</strong> with <code>overflow-x: auto</code>. JavaScript was integrated to handle real-time form validation and a live character counter for the feedback text area, enhancing the interactive experience.</p>
+                
+                <h3>Accessibility</h3>
+                <p>To ensure accessibility, I used <code>&lt;label&gt;</code> tags for all form inputs to assist screen readers. I also implemented <code>tabindex</code> for keyboard navigation and ensured all program images have descriptive <code>alt</code> text.</p>
+                
+                <h3>Links</h3>
+                <p><a href="validation_ST3.html#feedbackVal">View Validation Page</a> | <a href="feedback.html">View Actual Page</a></p>
+            </section>
+
+            <hr>
+
+            <section id="team">
+                <h2>Team Page</h2>
+                <h3>Technical Description</h3>
+                <p>For the Team page, I employed <strong>CSS Grid</strong> to create a responsive layout for member profiles. I used CSS <code>transition</code> and <code>transform</code> properties to create interactive hover effects. The structure uses <code>&lt;div&gt;</code> containers for each member, ensuring a clean separation of profile images and role descriptions.</p>
+                
+                <h3>Accessibility</h3>
+                <p>I focused on color contrast ratios to ensure text readability against the background. Semantic headings (h2, h3) were used to maintain a clear document hierarchy for assistive technologies.</p>
+
+                <h3>Links</h3>
+                <p><a href="validation_ST3.html#teamVal">View Validation Page</a> | <a href="team.html">View Actual Page</a></p>
+            </section>
+
+            <hr>
+
+            <section id="challenges">
+                <h2>Challenges and Lessons Learned</h2>
+                <p>One primary challenge was managing the responsiveness of the scrollable card layout on smaller screens. This was resolved by refining the Flexbox properties and testing across various viewport widths. Additionally, perfecting the JavaScript form validation taught me how to provide immediate user feedback without requiring a page reload, significantly improving my front-end logic skills.</p>
+            </section>
+
+            <hr>
+
+            <section id="compliance">
+                <h2>Compliance</h2>
+                <p>This website complies with Janet regulations by ensuring all content is academic in nature and relevant to SDG 9 (Industry, Innovation, and Infrastructure). I have avoided any prohibited commercial content and ensured that all external resources, such as images and tutorials, are properly cited in the references section.</p>
+            </section>
+
+            <hr>
+
+            <section id="meetings">
+                <h2>Group Meetings and Individual Contribution Log</h2>
+                <table border="1">
+                    <thead>
+                        <tr>
+                            <th>Meeting</th>
+                            <th>Date & Time</th>
+                            <th>Format</th>
+                            <th>Objective</th>
+                            <th>Attended</th>
+                            <th>Your Individual Contribution</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>3 Feb 2026</td>
+                            <td>Face-to-face</td>
+                            <td>Agree SDG and assign roles</td>
+                            <td>Yes</td>
+                            <td>I agreed to take responsibility for the Feedback Page and Team Page. Contributed to the discussion selecting SDG 7.</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>10 Feb 2026</td>
+                            <td>Online (Teams)</td>
+                            <td>Agree visual identity and colour palette</td>
+                            <td>Yes</td>
+                            <td>I suggested the primary accent colors. Agreed to use the dark navy highlight on the Feedback form buttons.</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>17 Feb 2026</td>
+                            <td>Online (Teams)</td>
+                            <td>Review shared template from Student 1</td>
+                            <td>Yes</td>
+                            <td>I tested the shared template on my pages and confirmed navigation links for feedback.html and team.html worked.</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>03 Mar 2026</td>
+                            <td>Hybrid</td>
+                            <td>Progress review – mid-point check</td>
+                            <td>Yes</td>
+                            <td>I demonstrated the working Feedback form JavaScript and the CSS Grid Team layout. Received feedback on mobile responsiveness.</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>17 Mar 2026</td>
+                            <td>Face-to-face</td>
+                            <td>Cross-review pages and fix links</td>
+                            <td>Yes</td>
+                            <td>I reviewed teammates' pages to confirm links to my sections functioned correctly and added aria-labels to the form.</td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td>24 Mar 2026</td>
+                            <td>Online (Teams)</td>
+                            <td>Final review and validation checks</td>
+                            <td>Yes</td>
+                            <td>I ran W3C validation on both pages, corrected a stray closing tag in team.html, and prepared validation screenshots.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <hr>
+
+            <section id="references">
+                <h2>References</h2>
+                <ul class="ref">
+                    <li>W3Schools (2026) <i>HTML Tutorial.</i> Available at: <a href="https://www.w3schools.com/html/">https://www.w3schools.com/html/</a></li>
+                    <li>MDN Web Docs (2026) <i>CSS Grid Layout.</i> Available at: <a href="https://developer.mozilla.org/">https://developer.mozilla.org/</a></li>
+                    <li>Duckett, J. (2011) <i>HTML and CSS: Design and Build Websites.</i> John Wiley & Sons.</li>
+                </ul>
+            </section>
+
+            <p class="top"><a href="#top">Go to Top</a></p>
+        </main>
+
+        <aside>
+            <h3>Core pages developed:</h3>
+            <ul class="top-level-ul">
+                <li><strong>Student 3 (Me)</strong>
+                    <ul>
+                        <li><a href="#feedback">Feedback Page</a></li>
+                        <li><a href="#team">Team Page</a></li>
+                    </ul>
+                </li>
+                <li><a href="#challenges">Challenges</a></li>
+                <li><a href="#compliance">Compliance</a></li>
+                <li><a href="#meetings">Meeting Log</a></li>
+                <li><a href="#references">References</a></li>
+            </ul>
+        </aside>
+    </div>
+
+     <footer class="site-footer">
+    <div class="footer-container">
+        <div class="footer-left">
+            <h3>Affordable and Clean Energy</h3>
+            <p>Ensure access to affordable, reliable, and modern energy for all</p>
+            <p>Sustainable Development Goal 7</p>
+        </div>
+
+        <div class="footer-links">
+            <a href="pageEditor_ST3.html">Page Editor</a>
+            <a href="validation_ST3.html">Validation</a>
+            <a href="sitemap.html">Sitemap</a>
+            <a href="profile.html">User Profile</a>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p>&copy; 2026 SOLAR</p>
+    </div>
+</footer>
+</body>
+</html>

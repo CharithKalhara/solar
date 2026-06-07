@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Team Page</title>
+
+<!--Extrenal CSS-->
+<link rel="stylesheet" href="style.css">
+
+<!--CSS part-->
+<style>
+
+.team-container{
+     align-items: stretch;
+     gap:25px;
+     padding:30px;
+     display:grid;
+     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.member{
+     display: flex;
+     flex-direction: column;
+     justify-content: space-between;
+     position:relative;
+     background:white;
+     border-radius:15px;
+     padding:10px;
+     text-align:center;
+     cursor:pointer;
+     overflow:hidden;
+     transition: transform 0.3s, box-shadow 0.3s;
+}
+
+
+.member:hover {
+     transform: scale(1.05);
+     box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.member:focus {
+     transform: scale(1.05);
+     box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+     outline: 3px solid #007BFF;
+}
+
+.member img{
+     width:100%;
+     border-radius:5px;
+     height:500px;
+     object-fit:cover;
+}
+
+.team-info {
+     padding: 10px;
+}
+
+
+.details{
+     position:absolute;
+     bottom:0;
+     left:0;
+     width:100%;
+     background: rgba(0,0,0,0.8);
+     color:white;
+     padding:10px;
+     max-height:0;
+     overflow:hidden;
+     transition:max-height 0.4s ease;
+}
+
+
+.member:hover .details,
+.member:focus .details {
+     max-height:200px;
+}
+.nav-list a.active {
+            background-color: #0b3a6e;
+            color: white;
+            font-weight: 600;
+            box-shadow: inset 0 -4px 0 #f4c400;
+            }
+
+.nav-list a.active:hover {
+    background-color: #0b3a6e;
+    color: white;
+}
+
+</style>
+</head>
+
+<body>
+
+<!--Header section-->
+<header class="top-header">
+    <div class="header-container">
+        <img src="images/logo.png" alt="United Nations logo" class="logo">
+
+        <div class="text-area">
+            <h1>AFFORDABLE AND CLEAN ENERGY</h1>
+            <h2>Ensure access to affordable and clean energy for all</h2>
+            <p>Sustainable Development</p>
+        </div>
+    </div>
+    </header>
+
+<!--Navigation-->
+<nav>
+<ul class="nav-list">
+    <li><a href="home.html">Home</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+    <li><a href="ais.html">AIS</a></li>
+    <li><a href="feedback.html">Feedback</a></li>
+    <li><a href="team.html" class="active">Team</a></li>
+    <li><a href="profile.html">Profile</a></li>
+    <li><a href="sitemap.html">Sitemap</a></li>
+</ul>
+</nav>
+
+<!--Main content-->
+<main>
+
+<h2>TEAMX Team Members</h2>
+
+<div class="team-container">
+
+<!--Member card-->
+<div class="member" tabindex="0">
+    <div class="team-info">
+        <h3>Student 1</h3>
+        <img src="images/Student1.png" alt="Photo of Charith Kalahara">
+        <p>Template & Home Page</p>
+    </div>
+
+    <div class="details">
+        <p><strong>Full name:</strong> Charith Kalhara</p>
+        <p><strong>Role:</strong> Template & Navigation</p>
+        <p>Created shared template and global CSS.</p>
+    </div>
+</div>
+
+
+<div class="member" tabindex="0">
+    <div class="team-info">
+        <h3>Student 2</h3>
+        <img src="images/Student2.png" alt="Photo of Dineth Seshan">
+        <p>Splash & AIS</p>
+    </div>
+
+    <div class="details">
+        <p><strong>Full name:</strong> B.A.D.S. Ediriweera</p>
+        <p><strong>Role:</strong> Splash & Simulator</p>
+        <p>Built dynamic features and animations.</p>
+    </div>
+</div>
+
+
+<div class="member" tabindex="0">
+    <div class="team-info">
+        <h3>Student 3</h3>
+        <img src="images/Student3.png" alt="Photo of Chamindu Prabhath">
+        <p>Feedback & Team Page</p>
+    </div>
+
+    <div class="details">
+        <p><strong>Full name:</strong> E.A.C.P. Edirisingha</p>
+        <p><strong>Role:</strong> Feedback & Team Page</p>
+        <p>Implemented feedback system and team page.</p>
+    </div>
+</div>
+
+
+<div class="member" tabindex="0">
+    <div class="team-info">
+        <h3>Student 4</h3>
+        <img src="images/Student4.png" alt="Photo of Mavinu Nethusha">
+        <p>Profile & Sitemap</p>
+    </div>
+
+    <div class="details">
+        <p><strong>Full name:</strong> P. Mavinu Nethusha</p>
+        <p><strong>Role:</strong> Profile & Sitemap</p>
+        <p>Developed user profile and sitemap.</p>
+    </div>
+</div>
+
+</div> 
+
+</main>
+
+<!--Footer section-->
+<footer class="site-footer">
+    <div class="footer-container">
+    <div class="footer-left">
+      <h3>Affordable and Clean Energy</h3>
+      <p>Ensure access to affordable, reliable, and modern energy for all</p>
+      <p>Sustainable Development Goal 7</p>
+    </div>
+
+    <div class="footer-links">
+      <a href="pageEditor_ST3.html">Page Editor</a>
+      <a href="validation_ST3.html">Validation</a>
+      <a href="sitemap.html">Sitemap</a>
+      <a href="profile.html">User Profile</a>
+    </div>
+    </div>
+
+  <div class="footer-bottom">
+    <p>© 2026 SOLAR</p>
+  </div>
+</footer>
+
+</body>
+</html>

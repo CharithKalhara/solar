@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery</title>
+    <script src="js/gallery.js" defer></script>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Page-specific gallery styles */
+        .gallery-intro {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .gallery-intro h2 {
+            margin-bottom: 10px;
+            font-size: 28px;
+        }
+
+        .gallery-intro p {
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .gallery-item {
+            background-color: white;
+            border: 1px solid #999;
+            padding: 15px;
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .gallery-item h3 {
+            margin: 10px 0 0 0;
+            font-size: 20px;
+        }
+
+        /* Hover effect controlled by JavaScript */
+        .gallery-item.is-hovered {
+            transform: scale(1.03);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            border-color: #f4c400;
+        }
+
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .modal-content {
+            background-color: white;
+            width: 80%;
+            max-width: 800px;
+            padding: 20px;
+            position: relative;
+        }
+
+        .modal-content img {
+            width: 100%;
+            max-height: 350px;
+            object-fit: cover;
+            display: block;
+            margin-bottom: 15px;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            border: none;
+            background: none;
+            font-size: 28px;
+            cursor: pointer;
+        }
+
+        .custom-controls {
+            margin: 15px 0;
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .custom-controls label {
+            font-weight: bold;
+        }
+
+        .theme-dark {
+            background-color: #222;
+            color: white;
+            padding: 15px;
+        }
+
+        .theme-light {
+            background-color: #fff8cc;
+            color: #222;
+            padding: 15px;
+        }
+
+        .font-serif {
+            font-family: Georgia, serif;
+        }
+
+        .font-sans {
+            font-family: Arial, sans-serif;
+        }
+        .go-top {
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            background-color: #f4c400;
+            color: black;
+            text-decoration: none;
+            padding: 10px 14px;
+            border: 1px solid black;
+            font-weight: bold;
+        }
+
+        .go-top:hover {
+            background-color: #e0b800;
+        }
+        .nav-list a.active {
+            background-color: #0b3a6e;
+            color: white;
+            font-weight: 600;
+            box-shadow: inset 0 -4px 0 #f4c400;
+        }
+
+.nav-list a.active:hover {
+    background-color: #0b3a6e;
+    color: white;
+}
+    </style>
+  </head>
+  <body>
+    <header class="top-header" id="top">
+    <div class="header-container">
+        <img src="images/logo.png" alt="United Nations logo" class="logo">
+
+        <div class="text-area">
+            <h1>AFFORDABLE AND CLEAN ENERGY</h1>
+            <h2>Ensure access to affordable and clean energy for all</h2>
+            <p>Sustainable Development</p>
+        </div>
+    </div>
+    </header>
+
+    <main>
+      <nav>
+        <ul class="nav-list">
+            <li><a href="home.html">Home</a></li>
+            <li><a href="gallery.html" class="active">Gallery</a></li>
+            <li><a href="ais.html">AIS</a></li>
+            <li><a href="feedback.html">Feedback</a></li>
+            <li><a href="team.html">Team</a></li>
+            <li><a href="profile.html">Profile</a></li>
+            <li><a href="sitemap.html">Sitemap</a></li>
+        </ul>
+        </nav>
+        <section class="gallery-intro">
+            <h2>Clean Energy Gallery</h2>
+            <p>
+                This gallery explores important areas connected to Sustainable Development Goal 7:
+                Affordable and Clean Energy. Select any image to view more details and customise
+                the extended view.
+            </p>
+        </section>
+
+        <section class="gallery-grid">
+            <article class="gallery-item"
+                data-title="Solar Energy"
+                data-image="images/solar.jpg"
+                data-alt="Solar panels generating renewable energy"
+                data-description="Solar energy uses sunlight to produce electricity without burning fossil fuels. It is one of the most practical renewable energy sources because it can be used in homes, schools, businesses, and community projects. Solar power helps reduce carbon emissions and supports a cleaner environment. It also improves energy security by providing a reliable alternative to non-renewable energy sources. Expanding solar energy can help make electricity more affordable and sustainable for future generations.">
+                <img src="images/solar.jpg" alt="Solar panels generating renewable energy">
+                <h3>Solar Energy</h3>
+            </article>
+
+            <article class="gallery-item"
+                data-title="Wind Power"
+                data-image="images/wind.jpg"
+                data-alt="Wind turbines producing clean electricity"
+                data-description="Wind power generates electricity by using the natural movement of air to turn turbines. It is a clean and renewable source of energy that helps reduce dependence on fossil fuels and lowers harmful emissions. Wind farms can supply large amounts of electricity for towns and cities while causing less environmental damage than traditional power generation. This makes wind energy an important part of building a more sustainable future. Supporting wind power helps countries move towards cleaner and more reliable energy systems.">
+                <img src="images/wind.jpg" alt="Wind turbines producing clean electricity">
+                <h3>Wind Power</h3>
+            </article>
+
+            <article class="gallery-item"
+                data-title="Energy Access"
+                data-image="images/access.jpg"
+                data-alt="A community benefiting from access to electricity"
+                data-description="Access to affordable and reliable energy is essential for education, healthcare, communication, and economic development. Many communities still face challenges because they do not have stable electricity for homes, schools, and workplaces. Improving energy access can raise living standards, reduce inequality, and create more opportunities for people. It also supports safer and healthier daily life by powering lighting, technology, and essential services. SDG 7 focuses on making sure modern energy is available to everyone.">
+                <img src="images/access.jpg" alt="A community benefiting from access to electricity">
+                <h3>Energy Access</h3>
+            </article>
+
+            <article class="gallery-item"
+                data-title="Saving Energy"
+                data-image="images/efficiency.jpg"
+                data-alt="A student using energy-efficient appliances"
+                data-description="Saving energy means using electricity and other resources more efficiently in daily life. Simple actions such as switching off unused lights, using energy-efficient appliances, and reducing waste can lower energy consumption. Energy efficiency helps reduce pollution, save money, and decrease pressure on power systems. Small responsible choices made by individuals, families, and schools can create a big positive effect over time. This is an important step towards a cleaner and more sustainable future.">
+                <img src="images/efficiency.jpg" alt="A student using energy-efficient appliances">
+                <h3>Saving Energy</h3>
+            </article>
+        </section>
+    <div class="modal" id="galleryModal" aria-hidden="true">
+        <div class="modal-content">
+            <button class="close-btn" id="closeModal" aria-label="Close extended view">&times;</button>
+
+            <img id="modalImage" src="images/placeholder.jpg" alt="Expanded gallery image">
+            <div class="custom-controls">
+                <div>
+                    <label for="themeSelect">Colour Scheme:</label>
+                    <select id="themeSelect">
+                        <option value="light">Light</option>
+                        <option value="dark">Dark</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label for="fontSelect">Font Style:</label>
+                    <select id="fontSelect">
+                        <option value="sans">Sans Serif</option>
+                        <option value="serif">Serif</option>
+                    </select>
+                </div>
+            </div>
+
+            <div id="modalBody" class="theme-light font-sans">
+                <h3 id="modalTitle">Title</h3>
+                <p id="modalDescription">Description</p>
+            </div>
+        </div>
+    </div>
+
+
+  </main>
+
+    <footer class="site-footer">
+    <div class="footer-container">
+    <div class="footer-left">
+      <h3>Affordable and Clean Energy</h3>
+      <p>Ensure access to affordable, reliable, and modern energy for all</p>
+      <p>Sustainable Development Goal 7</p>
+    </div>
+
+    <div class="footer-links">
+      <a href="pageEditor_ST1.html">Page Editor</a>
+      <a href="validation_ST1.html">Validation</a>
+      <a href="sitemap.html">Sitemap</a>
+      <a href="profile.html">User Profile</a>
+    </div>
+    </div>
+
+  <div class="footer-bottom">
+    <p>© 2026 SOLAR</p>
+  </div>
+</footer>
+<a href="#top" class="go-top">Go to Top</a>
+  </body>
+</html>

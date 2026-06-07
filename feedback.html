@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Feedback & Program Directory</title>
+
+<link rel="stylesheet" href="style.css">
+
+<!--Page decoration part-->
+<style>
+* {
+     box-sizing: border-box;
+}
+
+.program-container{
+     padding:15px;
+     gap:15px;
+     display:flex;
+     overflow-x:auto;
+	 align-items:stretch;
+}
+
+.card{
+     background:white;
+     padding:15px;
+     border-radius:10px;
+     box-shadow:0 2px 5px rgba(0,0,0,0.2);
+     min-width:300px;
+	 display:flex;
+	 flex-direction:column;
+	 justify-content:space-between;
+}
+
+.card img{
+     width:100%;
+     border-radius:5px;
+	 height:180px; 
+	 object-fit:cover;  
+}
+
+.card button{
+     color:white;
+     background:#00a2ff;
+     padding:10px;
+     border-radius:5px;
+     margin-top:auto;;
+     cursor:pointer;
+     border:none;
+}
+
+.card button:hover{
+     background:#00e1ff;
+}
+
+.card-content{
+     display:flex;
+     flex-direction:column;
+     justify-content:space-between;
+     flex-grow:1;
+}
+
+.review-card{
+     background:#f1f1f1;
+     margin:10px 0;
+     padding:15px;
+     border-radius:5px;
+}
+
+input, textarea, select{
+     width:100%;
+     padding:8px;
+     margin:5px 0 10px;
+}
+
+.error{
+     font-size:12px;
+     color:red;
+}
+
+.success{
+     color:green;
+     font-weight:bold;
+}
+
+section{
+     margin-bottom:30px;
+}
+.nav-list a.active {
+            background-color: #0b3a6e;
+            color: white;
+            font-weight: 600;
+            box-shadow: inset 0 -4px 0 #f4c400;
+            }
+
+.nav-list a.active:hover {
+    background-color: #0b3a6e;
+    color: white;
+}
+
+</style>
+</head>
+
+<body>
+
+<header class="top-header">
+    <div class="header-container">
+        <img src="images/logo.png" alt="United Nations logo" class="logo">
+
+        <div class="text-area">
+            <h1>AFFORDABLE AND CLEAN ENERGY</h1>
+            <h2>Ensure access to affordable and clean energy for all</h2>
+            <p>Sustainable Development</p>
+        </div>
+    </div>
+    </header>
+
+<nav>
+<ul class="nav-list">
+    <li><a href="home.html">Home</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+    <li><a href="ais.html">AIS</a></li>
+    <li><a href="feedback.html" class="active">Feedback</a></li>
+    <li><a href="team.html">Team</a></li>
+    <li><a href="profile.html">Profile</a></li>
+    <li><a href="sitemap.html">Sitemap</a></li>
+</ul>
+</nav>
+
+<main>
+
+<!--Program section-->
+<section aria-labelledby="programs">
+     <h2 id="programs">Programs</h2>
+
+<!-- Dropdown filter -->
+<label for="filter">Sort Programs</label>
+<select id="filter">
+    <option>Most Popular</option>
+    <option>Nearest</option>
+    <option>Student Friendly</option>
+</select>
+
+<!-- Scrollable cards container -->
+<div class="program-container">
+
+<!-- Program card -->
+<div class="card">
+     <h3>Solar Panel Installation</h3>
+     <img src="images/solarp.png" alt="Solar panel installation">
+	
+	 <div class="card-content">
+         <p>Solar panel installation is the process of setting up photovoltaic (PV) panels on rooftops, ground mounts, or other structures to capture sunlight and convert it into electricity.
+	      This involves assessing energy needs, selecting the right panels, mounting them securely, wiring them to an inverter, and connecting the system to the electrical grid or battery storage.
+	      Proper installation ensures maximum efficiency, safety, and long-term energy savings.
+	     </p>
+         <button type="button">Learn More</button>
+	 </div>
+</div>
+
+
+<div class="card">
+    <h3>Wind Energy Project</h3>
+    <img src="images/windp.png" alt="Wind energy">
+    <p>A wind energy project involves the development and operation of wind turbines to generate electricity from wind.
+	   It includes site assessment, turbine selection, installation, grid connection, and ongoing maintenance.
+	   These projects harness renewable wind power to provide clean, sustainable energy, reduce greenhouse gas emissions, and contribute to energy security.
+	</p>
+    <button type="button">Learn More</button>
+</div>
+
+<div class="card">
+    <h3>Energy Awareness Campaign</h3>
+    <img src="images/energy.png" alt="Energy awareness">
+    <p>An energy awareness campaign is an initiative designed to educate and inform the public about efficient energy use, renewable energy sources, and the environmental impact of energy consumption.
+	   It aims to promote sustainable practices, reduce energy waste, and encourage behavioral changes that support a cleaner, greener, and more energy-conscious society.
+	</p>
+    <button type="button">Learn More</button>
+</div>
+
+<div class="card">
+    <h3>Clean Energy Research</h3>
+    <img src="images/r.png" alt="Clean energy research">
+    <p>Clean energy research focuses on developing and improving sustainable energy technologies, such as solar, wind, hydro, and bioenergy.
+	   It aims to increase efficiency, reduce environmental impact, and create innovative solutions for a low-carbon, sustainable future.
+	</p>
+    <button type="button">Learn More</button>
+</div>
+
+</div>
+</section>
+
+<!--Review section-->
+<section>
+<h2>Rating & Review</h2>
+
+<h3>8.6/10 Excellent</h3>
+<p>Based on 120 reviews</p>
+
+<div class="review-card">
+    <h4>Great Program</h4>
+    <p>Helped bring electricity to villages <a href="#">See more</a></p>
+    <p>Saniru | 2025-02-01</p>
+    <p>Rating: 9/10</p>
+</div>
+
+<div class="review-card">
+    <h4>Great Experience</h4>
+    <p>Learned about renewable energy systems <a href="#">See more</a></p>
+    <p>Nimal | 2025-02-01</p>
+    <p>Rating: 9/10</p>
+</div>
+
+<div class="review-card">
+    <h4>Highly Recommended</h4>
+    <p>Excellent opportunity for students <a href="#">See more</a></p>
+    <p>John | 2025-02-01</p>
+    <p>Rating: 8/10</p>
+</div>
+
+</section>
+
+<!--Feedback form-->
+<section>
+<h2>Feedback Form</h2>
+
+<form id="form">
+
+<!-- Personal details -->
+<fieldset>
+<legend>Personal Details</legend>
+
+<label for="name">Full Name</label>
+<input type="text" id="name" required>
+<p class="error" id="NameError" aria-live="polite"></p>
+
+<label for="email">Email</label>
+<input type="email" id="email" required>
+<p class="error" id="EmailError"  aria-live="polite"></p>
+
+<label for="telephone">Phone</label>
+<input type="tel" id="telephone" required>
+<p class="error" id="PhoneError" aria-live="polite"></p>
+
+</fieldset>
+
+<!--Feedback details-->
+<fieldset>
+<legend>Feedback Details</legend>
+
+<label for="address">Address</label>
+<textarea id="address"></textarea>
+
+<label for="comment">Comment</label>
+<textarea id="comment" maxlength="200"></textarea>
+<p>Remaining characters: <span id="counter" aria-live="polite">200</span></p>
+
+<label for="program">Program Type</label>
+<select id="program">
+    <option>Solar</option>
+    <option>Wind</option>
+    <option>Education</option>
+</select>
+
+<label for="date">Date</label>
+<input type="date" id="date">
+
+<label for="datetime">Date & Time</label>
+<input type="datetime-local" id="datetime">
+
+</fieldset>
+
+<button type="submit">Submit</button>
+
+</form>
+
+<!--Success message-->
+<p id="msg" class="success" aria-live="polite"></p>
+
+</section>
+
+</main>
+
+<!--Footer-->
+<footer class="site-footer">
+    <div class="footer-container">
+    <div class="footer-left">
+      <h3>Affordable and Clean Energy</h3>
+      <p>Ensure access to affordable, reliable, and modern energy for all</p>
+      <p>Sustainable Development Goal 7</p>
+    </div>
+
+    <div class="footer-links">
+      <a href="pageEditor_ST3.html">Page Editor</a>
+      <a href="validation_ST3.html">Validation</a>
+      <a href="sitemap.html">Sitemap</a>
+      <a href="profile.html">User Profile</a>
+    </div>
+    </div>
+
+  <div class="footer-bottom">
+    <p>© 2026 SOLAR</p>
+  </div>
+</footer>
+
+<script src="feedback.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Affordable and Clean Energy | Splash Screen</title>
+
+    <!--automatic redirect after 4 seconds -->
+    <meta http-equiv="refresh" content="4; url=home.html">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            color: white;
+            background-image: url("images/splash-bg.jpg");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .overlay {
+            min-height: 100vh;
+            background-color: rgba(0, 0, 0, 0.6);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .splash-box {
+            max-width: 700px;
+            width: 100%;
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.45);
+            padding: 30px;
+            border: 2px solid #f4c400;
+        }
+
+        .splash-box h1 {
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-size: 40px;
+            color: #f4c400;
+        }
+
+        .splash-box h2 {
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+
+        .splash-box p {
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        .member-list {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
+        }
+
+        .member-list li {
+            margin-bottom: 8px;
+        }
+
+        .loader {
+            width: 50px;
+            height: 50px;
+            border: 5px solid #ffffff;
+            border-top: 5px solid #f4c400;
+            border-radius: 50%;
+            margin: 20px auto;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .countdown {
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .skip-btn {
+            display: inline-block;
+            background-color: #f4c400;
+            color: black;
+            text-decoration: none;
+            padding: 10px 18px;
+            border: 1px solid black;
+            font-weight: bold;
+        }
+
+        .skip-btn:hover {
+            background-color: #e0b800;
+        }
+    </style>
+</head>
+<body>
+    <main class="overlay">
+        <section class="splash-box">
+            <h1>AFFORDABLE AND CLEAN ENERGY</h1>
+            <h2>Ensure access to affordable and clean energy for all</h2>
+
+            <p>
+                This website explores how students and communities can support cleaner,
+                more reliable, and more sustainable energy in everyday life.
+            </p>
+
+            <p><strong>Group Members</strong></p>
+            <ul class="member-list">
+                <li>Charith Kalhara</li>
+                <li>Dineth Ediriweera</li>
+                <li>Mavinu Nethusha</li>
+                <li>Chamidu Edirisinghe</li>
+            </ul>
+
+            <div class="loader"></div>
+
+            <p class="countdown" id="countdown">Entering site in 4...</p>
+
+            <a href="home.html" class="skip-btn">Skip Intro</a>
+        </section>
+    </main>
+
+    <script>
+        let timeLeft = 4;
+        const countdownText = document.getElementById("countdown");
+
+        const timer = setInterval(function () {
+            timeLeft--;
+
+            if (timeLeft > 0) {
+                countdownText.textContent = "Entering site in " + timeLeft + "...";
+            } else {
+                clearInterval(timer);
+            }
+        }, 1000);
+    </script>
+</body>
+</html>

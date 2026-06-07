@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    ============================================================
+    profile.html
+    User Profile Page – Student 4 (Mavinu)
+    SDG 7: Affordable and Clean Energy
+    Module: 4COSC011W Web Design and Development
+    ============================================================
+  -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>User Profile | Clean Energy SDG 7</title>
+
+  <!-- Global CSS -->
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Page-specific embedded CSS -->
+  <style>
+    /* Outer background */
+    main {
+      background-color: #f0f0f0;
+      padding: 40px 20px;
+      min-height: 60vh;
+    }
+
+    /* Central white card */
+    .profile-card {
+      background: #ffffff;
+      border-radius: 14px;
+      padding: 36px 40px 40px;
+      max-width: 900px;
+      margin: 0 auto;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+    }
+
+    .profile-card h2 {
+      font-size: 1.6rem;
+      color: #1f2937;
+      margin: 0 0 10px;
+      font-weight: 700;
+    }
+
+    .profile-card > p {
+      color: #555;
+      font-size: 0.97rem;
+      margin: 0 0 22px;
+    }
+
+    /* Progress bar */
+    .progress-wrapper {
+      background-color: #e0e0e0;
+      border-radius: 10px;
+      height: 20px;
+      width: 100%;
+      margin-bottom: 8px;
+      overflow: hidden;
+    }
+
+    #progress-fill {
+      height: 100%;
+      width: 0%;
+      background-color: #c46a1b;
+      border-radius: 10px;
+      transition: width 0.6s ease;
+    }
+
+    #progress-label {
+      font-size: 0.88rem;
+      color: #666;
+      margin-bottom: 22px;
+    }
+
+    /* Buttons row */
+    .step-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 28px;
+    }
+
+    .step-btn {
+      padding: 11px 22px;
+      border: none;
+      border-radius: 7px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+      color: #ffffff;
+      transition: background 0.2s, opacity 0.2s;
+    }
+
+    .step-btn:not(:disabled):hover { opacity: 0.85; }
+    .step-btn:disabled { cursor: not-allowed; opacity: 0.55; }
+
+    #btn-step1 { background-color: #c46a1b; }
+    #btn-step2 { background-color: #cccccc; }
+    #btn-step3 { background-color: #cccccc; }
+
+    #btn-reset {
+      padding: 11px 22px;
+      border: none;
+      border-radius: 7px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+      background-color: #1f2937;
+      color: #ffffff;
+      transition: background 0.2s;
+    }
+
+    #btn-reset:hover { background-color: #374151; }
+
+    /* Revisit section */
+    .revisit-section {
+      display: none;
+      background: #fff8f2;
+      border: 1px solid #e6c39d;
+      border-radius: 8px;
+      padding: 14px 18px;
+      margin-bottom: 20px;
+    }
+
+    .revisit-section p { margin: 0 0 10px; font-weight: 600; color: #1f2937; }
+
+    .revisit-btn {
+      padding: 8px 16px;
+      margin-right: 8px;
+      margin-bottom: 8px;
+      background-color: #8f4c12;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      font-size: 0.88rem;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .revisit-btn:hover { background-color: #c46a1b; }
+
+    /* Profile step sections */
+    .profile-step-section {
+      display: none;
+      margin-bottom: 18px;
+      padding: 14px 18px;
+      background: #fdf5ee;
+      border-left: 4px solid #c46a1b;
+      border-radius: 0 8px 8px 0;
+      animation: fadeIn 0.4s ease;
+    }
+
+    .profile-step-section h3 { margin: 0 0 10px; font-size: 1rem; color: #1f2937; }
+    .profile-row { margin-bottom: 6px; font-size: 0.95rem; color: #333; }
+    .profile-label { font-weight: bold; color: #1f2937; }
+    .profile-value { color: #222; }
+
+    /* Status message */
+    #status-msg {
+      display: none;
+      background: #003b75;
+      color: #f4c400;
+      padding: 10px 16px;
+      border-radius: 6px;
+      font-size: 0.9rem;
+      margin-bottom: 16px;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Confirmation banner */
+    #confirmation-msg {
+      display: none;
+      background: #eafaf1;
+      border: 2px solid #27ae60;
+      border-radius: 8px;
+      padding: 14px 18px;
+      text-align: center;
+      color: #1e8449;
+      font-weight: bold;
+      font-size: 1rem;
+      margin-top: 16px;
+      animation: fadeIn 0.5s ease;
+    }
+    .nav-list a.active {
+            background-color: #0b3a6e;
+            color: white;
+            font-weight: 600;
+            box-shadow: inset 0 -4px 0 #f4c400;
+            }
+
+.nav-list a.active:hover {
+    background-color: #0b3a6e;
+    color: white;
+}
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-6px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 600px) {
+      .profile-card { padding: 24px 16px; }
+      .step-buttons { flex-direction: column; }
+      .step-btn, #btn-reset { width: 100%; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ════════════════════════════════
+       HEADER & NAV – unchanged
+       ════════════════════════════════ -->
+  <header class="top-header">
+    <div class="header-container">
+      <img src="images/logo.png" alt="Clean Energy SDG 7 website logo" class="logo" />
+      <div class="text-area">
+        <h1>Clean Energy</h1>
+        <h2>SDG 7 – Affordable and Clean Energy</h2>
+        <p>Empowering a sustainable future for everyone</p>
+      </div>
+    </div>
+  </header>
+
+  <nav aria-label="Main navigation">
+    <ul class="nav-list">
+      <li><a href="home.html">Home</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="ais.html">Action Simulator</a></li>
+      <li><a href="feedback.html">Feedback</a></li>
+      <li><a href="team.html">Team</a></li>
+      <li><a href="profile.html" class="active" aria-current="page">Profile</a></li>
+      <li><a href="sitemap.html">Sitemap</a></li>
+    </ul>
+  </nav>
+
+  <!-- ════════════════════════════════
+       MAIN CONTENT – image 2 layout
+       ════════════════════════════════ -->
+  <main id="top">
+
+    <!-- Status message -->
+    <div id="status-msg" role="status" aria-live="polite"></div>
+
+    <!-- Single centred card -->
+    <div class="profile-card">
+
+      <h2>Your Energy Profile</h2>
+      <p>Build your personal energy profile step by step. Answer a few questions and discover your impact level!</p>
+
+      <!-- Progress bar -->
+      <div class="progress-wrapper" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+        <div id="progress-fill"></div>
+      </div>
+      <p id="progress-label">Step 0 of 3 completed – 0% done</p>
+
+      <!-- Step buttons + Reset in one horizontal row -->
+      <div class="step-buttons">
+        <button id="btn-step1" class="step-btn">Step 1: Basic Details</button>
+        <button id="btn-step2" class="step-btn" disabled>Step 2: Energy Interests</button>
+        <button id="btn-step3" class="step-btn" disabled>Step 3: Your Actions</button>
+        <button id="btn-reset">Reset Profile</button>
+      </div>
+
+      <!-- Revisit buttons (appear after first step) -->
+      <div class="revisit-section" id="revisit-section">
+        <p>Go back and fill in skipped steps:</p>
+        <button class="revisit-btn" id="revisit-btn-1">Revisit Step 1</button>
+        <button class="revisit-btn" id="revisit-btn-2">Revisit Step 2</button>
+        <button class="revisit-btn" id="revisit-btn-3">Revisit Step 3</button>
+      </div>
+
+      <!-- Profile sections – revealed progressively by JS -->
+      <div id="profile-step1" class="profile-step-section"></div>
+      <div id="profile-step2" class="profile-step-section"></div>
+      <div id="profile-step3" class="profile-step-section"></div>
+
+      <!-- Completion confirmation -->
+      <div id="confirmation-msg" role="alert"></div>
+
+    </div><!-- /.profile-card -->
+
+  </main>
+
+  <!-- ════════════════════════════════
+       FOOTER – unchanged
+       ════════════════════════════════ -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-left">
+        <h3>Clean Energy – SDG 7</h3>
+        <p>Student 4: Mavinu</p>
+        <p>Role: User Profile &amp; Sitemap</p>
+      </div>
+      <div class="footer-links">
+        <a href="pageEditor_ST4.html" target="_blank">Page Editor – Mavinu</a>
+        <a href="validation_ST4.html" target="_blank">Validation – Mavinu</a>
+        <a href="https://www.un.org/sustainabledevelopment/energy/" target="_blank" rel="noopener">
+          Accessibility &amp; Compliance
+        </a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2026 SOLAR
+    </div>
+  </footer>
+
+  <!-- ════════════════════════════════
+       JAVASCRIPT
+       ════════════════════════════════ -->
+  <script>
+    var profileData = {
+      name:null, username:null, location:null,
+      energy:null, hours:null, sdg:null,
+      action:null, goal:null, commit:null
+    };
+    var stepDone = { 1:false, 2:false, 3:false };
+
+    document.getElementById('btn-step1').addEventListener('click', function(){ collectStep1(); });
+    document.getElementById('btn-step2').addEventListener('click', function(){ collectStep2(); });
+    document.getElementById('btn-step3').addEventListener('click', function(){ collectStep3(); });
+    document.getElementById('btn-reset').addEventListener('click', resetProfile);
+    document.getElementById('revisit-btn-1').addEventListener('click', function(){ collectStep1(); });
+    document.getElementById('revisit-btn-2').addEventListener('click', function(){ collectStep2(); });
+    document.getElementById('revisit-btn-3').addEventListener('click', function(){ collectStep3(); });
+
+    function collectStep1() {
+      var name = prompt("Step 1 of 3 – Basic Details\n\nWhat is your full name?\n(Press Cancel to skip)");
+      if (name === null) { showStatus("Step 1 skipped. You can revisit it later."); return; }
+      var username = prompt("Step 1 of 3 – Basic Details\n\nChoose a username:");
+      if (username === null) username = "";
+      var location = prompt("Step 1 of 3 – Basic Details\n\nWhat city or country are you from?");
+      if (location === null) location = "";
+
+      profileData.name     = name     || "Not provided";
+      profileData.username = username || "Not provided";
+      profileData.location = location || "Not provided";
+      stepDone[1] = true;
+      renderSection1(); updateProgress(); unlockStep(2); showRevisit();
+      showStatus("Step 1 saved!");
+    }
+
+    function collectStep2() {
+      var energy = prompt("Step 2 of 3 – Energy Interests\n\nFavourite type of clean energy? (e.g. Solar, Wind, Hydro)\n(Press Cancel to skip)");
+      if (energy === null) { showStatus("Step 2 skipped. You can revisit it later."); return; }
+      var hours = prompt("Step 2 of 3 – Energy Interests\n\nHow many hours per week do you try to save energy at home?");
+      if (hours === null) hours = "";
+      var sdg = prompt("Step 2 of 3 – Energy Interests\n\nWhich part of SDG 7 interests you most?\n(e.g. Solar panels, Clean cooking, Rural energy access)");
+      if (sdg === null) sdg = "";
+
+      profileData.energy = energy || "Not provided";
+      profileData.hours  = hours  || "Not provided";
+      profileData.sdg    = sdg    || "Not provided";
+      stepDone[2] = true;
+      renderSection2(); updateProgress(); unlockStep(3); showRevisit();
+      showStatus("Step 2 saved!");
+    }
+
+    function collectStep3() {
+      var action = prompt("Step 3 of 3 – Your Actions & Goals\n\nName one clean energy action you have already taken.\n(e.g. Switched to LED lights)\n(Press Cancel to skip)");
+      if (action === null) { showStatus("Step 3 skipped. You can revisit it later."); return; }
+      var goal = prompt("Step 3 of 3 – Your Actions & Goals\n\nWhat is one clean energy goal you want to achieve this week?");
+      if (goal === null) goal = "";
+      var commit = prompt("Step 3 of 3 – Your Actions & Goals\n\nHow committed are you to SDG 7? (Low, Medium, or High)");
+      if (commit === null) commit = "";
+
+      profileData.action = action || "Not provided";
+      profileData.goal   = goal   || "Not provided";
+      profileData.commit = commit || "Not provided";
+      stepDone[3] = true;
+      renderSection3(); updateProgress(); showRevisit(); checkAllComplete();
+      showStatus("Step 3 saved!");
+    }
+
+    function renderSection1() {
+      var el = document.getElementById('profile-step1');
+      el.innerHTML = '<h3>&#127881; Basic Details</h3>' +
+        row('Name', profileData.name) + row('Username', profileData.username) + row('Location', profileData.location);
+      el.style.display = 'block';
+    }
+
+    function renderSection2() {
+      var el = document.getElementById('profile-step2');
+      el.innerHTML = '<h3>&#9889; Energy Interests</h3>' +
+        row('Favourite Energy Type', profileData.energy) + row('Weekly Green Hours', profileData.hours) + row('SDG Interest', profileData.sdg);
+      el.style.display = 'block';
+    }
+
+    function renderSection3() {
+      var el = document.getElementById('profile-step3');
+      el.innerHTML = '<h3>&#127758; Your Actions &amp; Goals</h3>' +
+        row('Action Taken', profileData.action) + row('Weekly Goal', profileData.goal) + row('Commitment', profileData.commit);
+      el.style.display = 'block';
+    }
+
+    function row(label, value) {
+      return '<p class="profile-row"><span class="profile-label">' + label + ':</span> <span class="profile-value">' + value + '</span></p>';
+    }
+
+    function updateProgress() {
+      var count = (stepDone[1]?1:0) + (stepDone[2]?1:0) + (stepDone[3]?1:0);
+      var pct = Math.round((count / 3) * 100);
+      document.getElementById('progress-fill').style.width = pct + '%';
+      document.getElementById('progress-label').textContent = 'Step ' + count + ' of 3 completed – ' + pct + '% done';
+      document.querySelector('[role="progressbar"]').setAttribute('aria-valuenow', pct);
+    }
+
+    function unlockStep(n) {
+      var btn = document.getElementById('btn-step' + n);
+      if (btn) { btn.disabled = false; btn.style.backgroundColor = '#c46a1b'; }
+    }
+
+    function showRevisit() {
+      document.getElementById('revisit-section').style.display = 'block';
+    }
+
+    function checkAllComplete() {
+      if (stepDone[1] && stepDone[2] && stepDone[3]) {
+        var name = profileData.name !== "Not provided" ? profileData.name : "Energy Champion";
+        var msg = document.getElementById('confirmation-msg');
+        msg.innerHTML = '&#10003; Profile complete! Thank you, ' + name + '. You are an energy champion!';
+        msg.style.display = 'block';
+      }
+    }
+
+    function showStatus(text) {
+      var el = document.getElementById('status-msg');
+      el.textContent = text;
+      el.style.display = 'block';
+      setTimeout(function(){ el.style.display = 'none'; }, 3000);
+    }
+
+    function resetProfile() {
+      if (!confirm("Are you sure you want to reset your profile? All data will be lost.")) return;
+      profileData = { name:null,username:null,location:null,energy:null,hours:null,sdg:null,action:null,goal:null,commit:null };
+      stepDone    = { 1:false, 2:false, 3:false };
+
+      document.getElementById('progress-fill').style.width = '0%';
+      document.getElementById('progress-label').textContent = 'Step 0 of 3 completed – 0% done';
+      document.querySelector('[role="progressbar"]').setAttribute('aria-valuenow', 0);
+
+      ['profile-step1','profile-step2','profile-step3','confirmation-msg','revisit-section','status-msg']
+        .forEach(function(id){ document.getElementById(id).style.display = 'none'; });
+      ['profile-step1','profile-step2','profile-step3']
+        .forEach(function(id){ document.getElementById(id).innerHTML = ''; });
+
+      ['btn-step2','btn-step3'].forEach(function(id){
+        var b = document.getElementById(id);
+        b.disabled = true;
+        b.style.backgroundColor = '#cccccc';
+      });
+    }
+  </script>
+
+</body>
+</html>
